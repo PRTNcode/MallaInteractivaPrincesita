@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: hidden; /* Sin scroll vertical */
     font-family: 'Poppins', sans-serif;
     background-color: #FFB8F7;
-    margin: 0;
-    padding: 40px 20px;
-    font-size: 20px;
+}
+
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    padding: 20px 10px;
+    font-size: 20px;
     box-sizing: border-box;
+    height: 100vh; /* Ocupa toda la ventana */
 }
 
 h1 {
+    margin: 0 0 20px 0;
     text-align: center;
-    margin-bottom: 40px;
     max-width: 100%;
     padding: 0 10px;
     word-wrap: break-word;
@@ -24,24 +30,29 @@ h1 {
 .container {
     display: flex;
     gap: 40px;
-    justify-content: center;
-    flex-wrap: wrap; /* Permite que ciclos bajen si no caben */
-    max-width: 100%;
-    padding: 0 10px;
+    justify-content: flex-start;
+    flex-wrap: nowrap; /* Ciclos en fila */
+    max-width: 100vw;
+    overflow-x: auto; /* Scroll horizontal */
+    overflow-y: hidden;
+    padding-bottom: 10px;
     box-sizing: border-box;
+    height: calc(100vh - 100px); /* Altura para evitar scroll vertical, considerando header */
+    scroll-behavior: smooth;
+    scroll-padding-left: 20px;
 }
 
 .cycle {
     border: 3px solid #aaa;
-    padding: 25px;
+    padding: 20px;
     background: #fff;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    min-width: 300px;
-    max-width: 100%; /* Que no se salga del viewport */
-    flex: 1 1 500px; /* flexible para crecer o encoger */
+    min-width: 600px;
+    max-height: 100%;
+    overflow-y: hidden; /* Evitar scroll vertical */
     box-sizing: border-box;
     align-items: center;
 }
@@ -49,12 +60,14 @@ h1 {
 .semester-container {
     display: flex;
     gap: 30px;
-    flex-wrap: nowrap; /* todos los semestres en fila */
+    flex-wrap: nowrap; /* Semestres en fila */
     justify-content: flex-start;
     width: 100%;
-    overflow-x: auto; /* scroll si no caben */
+    overflow-x: auto; /* Scroll horizontal dentro del ciclo si necesario */
+    overflow-y: hidden;
     box-sizing: border-box;
     padding-bottom: 10px;
+    max-height: 100%; /* Evitar scroll vertical */
 }
 
 .semester {
@@ -62,10 +75,11 @@ h1 {
     padding: 20px;
     border-radius: 20px;
     display: flex;
-    flex-direction: column; /* asignaturas vertical */
+    flex-direction: column; /* asignaturas en columna */
     align-items: center;
-    min-width: 160px;
-    max-width: 160px;
+    min-width: 180px;
+    max-height: 100%;
+    overflow-y: auto; /* si hay muchas asignaturas, scroll solo ahí */
     box-sizing: border-box;
     flex-shrink: 0;
 }
@@ -116,64 +130,29 @@ h2 {
 
 /* Responsive */
 
-@media (max-width: 1100px) {
-    .container {
-        gap: 20px;
-    }
-    .cycle {
-        min-width: 280px;
-        flex: 1 1 350px;
-        padding: 15px;
-    }
-    .semester-container {
-        gap: 15px;
-        overflow-x: auto;
-    }
-    .semester {
-        min-width: 140px;
-        max-width: 140px;
-        padding: 15px;
-    }
+@media (max-width: 900px) {
     body {
         font-size: 18px;
-        padding: 30px 15px;
+        padding: 20px 10px;
     }
-}
-
-@media (max-width: 700px) {
     .container {
-        flex-direction: column;
-        gap: 25px;
-        padding: 0 10px;
+        height: auto; /* para móviles permitir scroll vertical */
+        overflow-y: visible;
+        flex-wrap: wrap;
     }
     .cycle {
         min-width: 100%;
         max-width: 100%;
+        overflow-y: visible;
     }
     .semester-container {
         flex-wrap: wrap;
-        gap: 15px;
         overflow-x: visible;
+        max-height: none;
     }
     .semester {
         min-width: 100%;
-        max-width: 100%;
-    }
-    body {
-        font-size: 16px;
-        padding: 20px 10px;
-    }
-    h1 {
-        font-size: 1.6em;
-    }
-    h2 {
-        font-size: 1.4em;
-    }
-    .semester h3 {
-        font-size: 1.1em;
-    }
-    .subject {
-        font-size: 0.95em;
-        padding: 8px 10px;
+        max-height: none;
+        overflow-y: visible;
     }
 }
