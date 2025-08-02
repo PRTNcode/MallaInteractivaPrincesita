@@ -33,14 +33,14 @@ function updatePrerequisites() {
     document.querySelectorAll(".subject").forEach(subject => {
         const id = subject.dataset.id;
         if (prerequisites[id]) {
-            const unlocked = prerequisites[id].every(reqId => {
-                const reqSubject = document.querySelector(`.subject[data-id='${reqId}']`);
-                return reqSubject && reqSubject.classList.contains("approved");
-            });
+            const unlocked = prerequisites[id].every(reqId =>
+                document.querySelector(`.subject[data-id='${reqId}']`)?.classList.contains("approved")
+            );
             if (unlocked) {
                 subject.classList.remove("locked");
             } else {
                 subject.classList.add("locked");
+                subject.classList.remove("approved"); // Evitar aprobado si está bloqueado
             }
         }
     });
@@ -63,8 +63,12 @@ function loadProgress() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Forzar scroll inicial a la izquierda
+    const container = document.querySelector(".container");
+    if (container) container.scrollLeft = 0;
+
     document.querySelectorAll(".subject").forEach(subject => {
-        subject.addEventListener("click", function() {
+        subject.addEventListener("click", function () {
             if (subject.classList.contains("locked")) return;
             subject.classList.toggle("approved");
             saveProgress();
