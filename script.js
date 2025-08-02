@@ -1,0 +1,88 @@
+const prerequisites = {
+    "derecho-civil-1": ["intro-derecho-civil"],
+    "derecho-economico-2": ["derecho-economico-1"],
+    "historia-constitucional": ["derecho-politico"],
+    "derecho-civil-2": ["derecho-civil-1"],
+    "derecho-procesal-2": ["derecho-procesal-1"],
+    "derecho-constitucional-1": ["historia-constitucional"],
+    "derecho-civil-3": ["derecho-civil-2"],
+    "derecho-procesal-3": ["derecho-procesal-2"],
+    "derecho-penal-1": ["derecho-procesal-2"],
+    "derecho-constitucional-2": ["derecho-constitucional-1"],
+    "derecho-civil-4": ["derecho-civil-3"],
+    "derecho-procesal-4": ["derecho-procesal-3"],
+    "derecho-penal-2": ["derecho-penal-1"],
+    "derecho-administrativo": ["derecho-constitucional-2"],
+    "derecho-civil-5": ["derecho-civil-4"],
+    "derecho-procesal-5": ["derecho-procesal-4"],
+    "derecho-penal-3": ["derecho-penal-2"],
+    "derecho-economico-3": ["derecho-economico-2"],
+    "derecho-civil-6": ["derecho-civil-5"],
+    "derecho-procesal-6": ["derecho-procesal-5"],
+    "derecho-del-trabajo": ["derecho-civil-3", "derecho-procesal-3"],
+    "derecho-tributario": ["derecho-economico-3"],
+    "derecho-civil-7": ["derecho-civil-6"],
+    "derecho-seguridad-social": ["derecho-del-trabajo"],
+    "seminario-integrativo-1": ["derecho-administrativo", "derecho-civil-5"],
+    "clinica-juridica-1": ["derecho-civil-6", "derecho-procesal-5"],
+    "seminario-integrativo-2": ["seminario-integrativo-1"],
+    "clinica-juridica-2": ["clinica-juridica-1"]
+};
+
+function updatePrerequisites() {
+    document.querySelectorAll(".subject").forEach(subject => {
+        const id = subject.dataset.id;
+        if (prerequisites[id]) {
+            const unlocked = prerequisites[id].every(reqId => 
+                document.querySelector(`.subject[data-id='${reqId}']`).classList.contains("approved")
+            );
+            if (unlocked) {
+                subject.classList.remove("locked");
+            } else {
+                subject.classList.add("locked");
+            }
+        }
+    });
+}
+
+function saveProgress() {
+    const approvedSubjects = [];
+    document.querySelectorAll(".subject.approved").forEach(subject => {
+        approvedSubjects.push(subject.dataset.id);
+    });
+    localStorage.setItem("mallaProgress", JSON.stringify(approvedSubjects));
+}
+
+function loadProgress() {
+    const approvedSubjects = JSON.parse(localStorage.getItem("mallaProgress")) || [];
+    approvedSubjects.forEach(id => {
+        const subject = document.querySelector(`.subject[data-id='${id}']`);
+        if (subject) subject.classList.add("approved");
+    });
+}
+
+function resetProgress() {
+    if (confirm("¿Estás seguro de que deseas reiniciar tu progreso?")) {
+        localStorage.removeItem("mallaProgress");
+        document.querySelectorAll(".subject").forEach(subject => {
+            subject.classList.remove("approved");
+        });
+        updatePrerequisites();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".subject").forEach(subject => {
+        subject.addEventListener("click", function() {
+            if (subject.classList.contains("locked")) return;
+            subject.classList.toggle("approved");
+            saveProgress();
+            updatePrerequisites();
+        });
+    });
+
+    document.getElementById("resetProgress").addEventListener("click", resetProgress);
+
+    loadProgress();
+    updatePrerequisites();
+});
