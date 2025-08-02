@@ -33,7 +33,7 @@ h1 {
     justify-content: flex-start;
     flex-wrap: nowrap; /* Ciclos en fila */
     max-width: 100vw;
-    overflow-x: auto; /* Scroll horizontal */
+    overflow-x: auto; /* Scroll horizontal SOLO aquí */
     overflow-y: hidden;
     padding-bottom: 10px;
     box-sizing: border-box;
@@ -50,9 +50,9 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    min-width: 600px;
+    min-width: max-content; /* Se adapta al contenido sin scroll interno */
     max-height: 100%;
-    overflow-y: hidden; /* Evitar scroll vertical */
+    overflow: visible; /* Sin scroll interno */
     box-sizing: border-box;
     align-items: center;
 }
@@ -62,12 +62,12 @@ h1 {
     gap: 30px;
     flex-wrap: nowrap; /* Semestres en fila */
     justify-content: flex-start;
-    width: 100%;
-    overflow-x: visible; /* Sin scroll horizontal interno */
-    overflow-y: hidden;
+    width: max-content; /* Se adapta al contenido */
+    overflow: visible; /* Sin scroll interno */
+    overflow-y: visible;
     box-sizing: border-box;
     padding-bottom: 10px;
-    max-height: 100%; /* Evitar scroll vertical */
+    max-height: 100%;
 }
 
 .semester {
@@ -156,3 +156,4 @@ h2 {
         overflow-y: visible;
     }
 }
+
