@@ -1,50 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background: #FFB8F7;
-    padding: 30px;
-    font-size: 18px; /* texto más grande */
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFB8F7;
+    margin: 0;
+    padding: 40px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-h1, h2, h3 {
-    color: #333;
-    margin-bottom: 15px;
+.container {
+    display: flex;
+    gap: 40px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cycle {
-    border: 2px solid #aaa;
+    border: 3px solid #aaa;
     padding: 25px;
-    margin-bottom: 30px;
     background: #fff;
-    border-radius: 20px; /* esquinas muy redondeadas */
-
+    border-radius: 30px;
     display: flex;
-    gap: 25px; /* espacio horizontal entre columnas */
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+    min-width: 400px;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 15px;
 }
 
 .semester {
+    background: #ffe6f7;
+    padding: 20px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    min-width: 220px; /* columnas más anchas */
-    background: #ffe6f7;
-    padding: 15px;
-    border-radius: 20px; /* esquinas redondeadas */
+    align-items: center;
+    min-width: 220px;
 }
 
 .semester h3 {
     margin-bottom: 20px;
-    text-align: center;
+    font-size: 1.3em;
 }
 
 .subject {
     background: #ffb6c1;
-    padding: 15px;
-    margin: 8px 0;
+    padding: 15px 20px;
+    margin: 10px 0;
     cursor: pointer;
-    border-radius: 15px; /* esquinas redondeadas */
+    border-radius: 15px;
     user-select: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: 600;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
 }
 
 .subject:hover:not(.locked) {
@@ -61,22 +87,6 @@ h1, h2, h3 {
     cursor: not-allowed;
     text-decoration: none;
     opacity: 0.6;
-}
-
-button#resetProgress {
-    padding: 15px 25px;
-    background: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 25px; /* esquinas más redondas */
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-button#resetProgress:hover {
-    background: #c0392b;
 }
 
 .subject:focus {
