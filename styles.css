@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-y: hidden; /* Sin scroll vertical */
+    overflow: hidden; /* elimina todos los scrolls del navegador */
     font-family: 'Poppins', sans-serif;
     background-color: #FFB8F7;
 }
@@ -156,4 +156,3 @@ h2 {
         overflow-y: visible;
     }
 }
-
