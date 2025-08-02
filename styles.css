@@ -32,13 +32,15 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    min-width: 350px;
+    min-width: 600px;
     align-items: center;
 }
 
-h2 {
-    text-align: center;
-    font-size: 1.8em;
+.semester-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .semester {
@@ -46,28 +48,36 @@ h2 {
     padding: 20px;
     border-radius: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8em;
 }
 
 .semester h3 {
+    width: 100%;
+    text-align: center;
     margin-bottom: 15px;
     font-size: 1.3em;
 }
 
 .subject {
     background: #ffb6c1;
-    padding: 15px 20px;
-    margin: 10px 0;
+    padding: 10px 15px;
+    margin: 5px;
     cursor: pointer;
     border-radius: 15px;
     user-select: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: 600;
-    font-size: 1.1em;
-    width: 100%;
-    text-align: center;
+    font-size: 1em;
 }
 
 .subject:hover:not(.locked) {
@@ -84,9 +94,4 @@ h2 {
     cursor: not-allowed;
     text-decoration: none;
     opacity: 0.6;
-}
-
-.subject:focus {
-    outline: 3px solid #666;
-    outline-offset: 2px;
 }
