@@ -1,88 +1,95 @@
-const prerequisites = {
-    "derecho-civil-1": ["intro-derecho-civil"],
-    "derecho-economico-2": ["derecho-economico-1"],
-    "historia-constitucional": ["derecho-politico"],
-    "derecho-civil-2": ["derecho-civil-1"],
-    "derecho-procesal-2": ["derecho-procesal-1"],
-    "derecho-constitucional-1": ["historia-constitucional"],
-    "derecho-civil-3": ["derecho-civil-2"],
-    "derecho-procesal-3": ["derecho-procesal-2"],
-    "derecho-penal-1": ["derecho-procesal-2"],
-    "derecho-constitucional-2": ["derecho-constitucional-1"],
-    "derecho-civil-4": ["derecho-civil-3"],
-    "derecho-procesal-4": ["derecho-procesal-3"],
-    "derecho-penal-2": ["derecho-penal-1"],
-    "derecho-administrativo": ["derecho-constitucional-2"],
-    "derecho-civil-5": ["derecho-civil-4"],
-    "derecho-procesal-5": ["derecho-procesal-4"],
-    "derecho-penal-3": ["derecho-penal-2"],
-    "derecho-economico-3": ["derecho-economico-2"],
-    "derecho-civil-6": ["derecho-civil-5"],
-    "derecho-procesal-6": ["derecho-procesal-5"],
-    "derecho-del-trabajo": ["derecho-civil-3", "derecho-procesal-3"],
-    "derecho-tributario": ["derecho-economico-3"],
-    "derecho-civil-7": ["derecho-civil-6"],
-    "derecho-seguridad-social": ["derecho-del-trabajo"],
-    "seminario-integrativo-1": ["derecho-administrativo", "derecho-civil-5"],
-    "clinica-juridica-1": ["derecho-civil-6", "derecho-procesal-5"],
-    "seminario-integrativo-2": ["seminario-integrativo-1"],
-    "clinica-juridica-2": ["clinica-juridica-1"]
-};
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-function updatePrerequisites() {
-    document.querySelectorAll(".subject").forEach(subject => {
-        const id = subject.dataset.id;
-        if (prerequisites[id]) {
-            const unlocked = prerequisites[id].every(reqId => 
-                document.querySelector(`.subject[data-id='${reqId}']`).classList.contains("approved")
-            );
-            if (unlocked) {
-                subject.classList.remove("locked");
-            } else {
-                subject.classList.add("locked");
-            }
-        }
-    });
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFB8F7;
+    margin: 0;
+    padding: 40px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-function saveProgress() {
-    const approvedSubjects = [];
-    document.querySelectorAll(".subject.approved").forEach(subject => {
-        approvedSubjects.push(subject.dataset.id);
-    });
-    localStorage.setItem("mallaProgress", JSON.stringify(approvedSubjects));
+.container {
+    display: flex;
+    gap: 40px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-function loadProgress() {
-    const approvedSubjects = JSON.parse(localStorage.getItem("mallaProgress")) || [];
-    approvedSubjects.forEach(id => {
-        const subject = document.querySelector(`.subject[data-id='${id}']`);
-        if (subject) subject.classList.add("approved");
-    });
+.cycle {
+    border: 3px solid #aaa;
+    padding: 25px;
+    background: #fff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+    min-width: 400px;
 }
 
-function resetProgress() {
-    if (confirm("¿Estás seguro de que deseas reiniciar tu progreso?")) {
-        localStorage.removeItem("mallaProgress");
-        document.querySelectorAll(".subject").forEach(subject => {
-            subject.classList.remove("approved");
-        });
-        updatePrerequisites();
-    }
+h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".subject").forEach(subject => {
-        subject.addEventListener("click", function() {
-            if (subject.classList.contains("locked")) return;
-            subject.classList.toggle("approved");
-            saveProgress();
-            updatePrerequisites();
-        });
-    });
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
 
-    document.getElementById("resetProgress").addEventListener("click", resetProgress);
+.semester {
+    background: #ffe6f7;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+}
 
-    loadProgress();
-    updatePrerequisites();
-});
+.semester h3 {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.subject {
+    background: #ffb6c1;
+    padding: 15px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 15px;
+    user-select: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+}
+
+.subject:hover:not(.locked) {
+    transform: scale(1.05);
+}
+
+.subject.approved {
+    background: #b19cd9;
+    text-decoration: line-through;
+}
+
+.subject.locked {
+    background: #ccc;
+    cursor: not-allowed;
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+.subject:focus {
+    outline: 3px solid #666;
+    outline-offset: 2px;
+}
