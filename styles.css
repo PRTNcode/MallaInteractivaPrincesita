@@ -21,7 +21,7 @@ h1 {
     display: flex;
     gap: 40px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* NO permitir que los ciclos bajen */
 }
 
 .cycle {
@@ -39,8 +39,10 @@ h1 {
 .semester-container {
     display: flex;
     gap: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Forzar todos los semestres en una fila */
     justify-content: center;
+    overflow-x: auto; /* Para que salga scroll si no caben */
+    padding-bottom: 10px; /* espacio para el scroll */
 }
 
 .semester {
@@ -48,9 +50,11 @@ h1 {
     padding: 20px;
     border-radius: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* ASIGNATURAS en columna vertical */
     align-items: center;
     min-width: 180px;
+    max-width: 220px;
+    box-sizing: border-box;
 }
 
 h2 {
@@ -67,7 +71,7 @@ h2 {
 .subject {
     background: #ffb6c1;
     padding: 10px 15px;
-    margin: 5px 0;
+    margin: 5px 0; /* margen vertical para que estén en columna */
     cursor: pointer;
     border-radius: 15px;
     user-select: none;
@@ -93,4 +97,3 @@ h2 {
     text-decoration: none;
     opacity: 0.6;
 }
-
