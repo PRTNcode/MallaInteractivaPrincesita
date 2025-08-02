@@ -63,7 +63,7 @@ h1 {
     flex-wrap: nowrap; /* Semestres en fila */
     justify-content: flex-start;
     width: 100%;
-    overflow-x: auto; /* Scroll horizontal dentro del ciclo si necesario */
+    overflow-x: visible; /* Cambiado de auto a visible para quitar scroll interno */
     overflow-y: hidden;
     box-sizing: border-box;
     padding-bottom: 10px;
