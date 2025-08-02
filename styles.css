@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* elimina todos los scrolls del navegador */
+    overflow: hidden; /* elimina todo scroll global */
     font-family: 'Poppins', sans-serif;
     background-color: #FFB8F7;
 }
@@ -16,7 +16,7 @@ body {
     padding: 20px 10px;
     font-size: 20px;
     box-sizing: border-box;
-    height: 100vh; /* Ocupa toda la ventana */
+    height: 100vh;
 }
 
 h1 {
@@ -31,15 +31,14 @@ h1 {
     display: flex;
     gap: 40px;
     justify-content: flex-start;
-    flex-wrap: nowrap; /* Ciclos en fila */
+    flex-wrap: nowrap;
     max-width: 100vw;
-    overflow-x: auto; /* Scroll horizontal SOLO aquí */
+    overflow-x: auto; /* scroll horizontal solo aquí */
     overflow-y: hidden;
     padding-bottom: 10px;
     box-sizing: border-box;
-    height: calc(100vh - 100px); /* Altura para evitar scroll vertical, considerando header */
+    height: calc(100vh - 100px); /* ajusta al alto de la ventana */
     scroll-behavior: smooth;
-    scroll-padding-left: 20px;
 }
 
 .cycle {
@@ -50,9 +49,9 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    min-width: max-content; /* Se adapta al contenido sin scroll interno */
+    min-width: max-content;
     max-height: 100%;
-    overflow: visible; /* Sin scroll interno */
+    overflow: visible; /* sin scroll interno */
     box-sizing: border-box;
     align-items: center;
 }
@@ -60,14 +59,11 @@ h1 {
 .semester-container {
     display: flex;
     gap: 30px;
-    flex-wrap: nowrap; /* Semestres en fila */
+    flex-wrap: nowrap;
     justify-content: flex-start;
-    width: max-content; /* Se adapta al contenido */
-    overflow: visible; /* Sin scroll interno */
-    overflow-y: visible;
+    width: max-content;
+    overflow: visible; /* sin scroll interno */
     box-sizing: border-box;
-    padding-bottom: 10px;
-    max-height: 100%;
 }
 
 .semester {
@@ -75,11 +71,9 @@ h1 {
     padding: 20px;
     border-radius: 20px;
     display: flex;
-    flex-direction: column; /* asignaturas en columna */
+    flex-direction: column;
     align-items: center;
     min-width: 180px;
-    max-height: 100%;
-    overflow-y: auto; /* si hay muchas asignaturas, scroll solo ahí */
     box-sizing: border-box;
     flex-shrink: 0;
 }
@@ -129,30 +123,25 @@ h2 {
 }
 
 /* Responsive */
-
 @media (max-width: 900px) {
     body {
         font-size: 18px;
         padding: 20px 10px;
+        overflow-y: auto; /* Para móviles permitimos scroll vertical */
     }
     .container {
-        height: auto; /* para móviles permitir scroll vertical */
+        height: auto;
         overflow-y: visible;
         flex-wrap: wrap;
     }
     .cycle {
         min-width: 100%;
         max-width: 100%;
-        overflow-y: visible;
     }
     .semester-container {
         flex-wrap: wrap;
-        overflow-x: visible;
-        max-height: none;
     }
     .semester {
         min-width: 100%;
-        max-height: none;
-        overflow-y: visible;
     }
 }
