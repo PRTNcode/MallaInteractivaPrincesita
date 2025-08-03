@@ -8,10 +8,10 @@ body {
     padding: 20px 0;
     overflow-x: hidden;
     overflow-y: hidden;
-    position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 body::before {
@@ -23,13 +23,14 @@ body::before {
     z-index: -2;
 }
 
-/* Titulo Principal */
+/* Título Principal */
 .titulo-princesa-wrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     flex-shrink: 0;
 }
+
 .titulo-princesa {
     background: linear-gradient(135deg, rgba(209, 120, 224, 0.9), rgba(255, 182, 217, 0.9));
     color: #fff;
@@ -40,38 +41,43 @@ body::before {
     text-align: center;
     transition: transform 0.3s ease;
 }
+
 .titulo-princesa:hover {
     transform: scale(1.02);
 }
 
-/* Scroll Horizontal Global */
+/* Contenedor principal con scroll horizontal personalizado */
 .container {
     display: flex;
     gap: 40px;
+    padding: 0 5vw;
+    height: calc(100vh - 110px);
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 5vw;
     scroll-behavior: smooth;
-    height: calc(100vh - 110px); /* Resta título + margen */
     box-sizing: border-box;
 }
 
+/* Scroll personalizado de la container */
 .container::-webkit-scrollbar {
     height: 12px;
 }
+
 .container::-webkit-scrollbar-track {
     background: linear-gradient(to right, #FADAF1, #FFD3EB);
     border-radius: 6px;
 }
+
 .container::-webkit-scrollbar-thumb {
     background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
     border-radius: 6px;
 }
+
 .container::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(145deg, #FFA7D4, #D78ABC);
 }
 
-/* Ciclos */
+/* Cada ciclo: columna vertical de semestres */
 .cycle {
     position: relative;
     border: 4px solid #E6B7EB;
@@ -80,14 +86,14 @@ body::before {
     flex: 0 0 auto;
     min-width: 650px;
     height: 100%;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
-    animation: float 6s ease-in-out infinite;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(3px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cycle:hover {
@@ -104,6 +110,7 @@ body::before {
     opacity: 0.12;
     z-index: 0;
 }
+
 .cycle > * {
     position: relative;
     z-index: 1;
@@ -117,27 +124,31 @@ body::before {
     text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
 }
 
-/* Semestres */
+/* Semestre container: apila semestres verticalmente */
 .semester-container {
     display: flex;
+    flex-direction: column;
     gap: 35px;
     flex-grow: 1;
     overflow-y: auto;
-    padding-right: 6px;
+    padding-right: 8px;
 }
 
+/* Scroll para semestres (vertical interno) */
 .semester-container::-webkit-scrollbar {
     width: 8px;
 }
+
 .semester-container::-webkit-scrollbar-track {
     background: transparent;
 }
+
 .semester-container::-webkit-scrollbar-thumb {
     background: #FFB6D9;
     border-radius: 6px;
 }
 
-/* Cada semestre */
+/* Cada semestre: caja vertical */
 .semester {
     background: linear-gradient(to bottom, #FFD6E7, #FDE6F4);
     border-radius: 25px;
@@ -149,6 +160,7 @@ body::before {
     box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(168, 94, 185, 0.15);
     transition: transform 0.3s ease;
 }
+
 .semester:hover {
     transform: translateY(-3px);
 }
@@ -176,16 +188,19 @@ body::before {
     box-shadow: 0 2px 6px rgba(168, 94, 185, 0.1);
     transition: transform 0.25s ease, background 0.4s ease, box-shadow 0.3s ease;
 }
+
 .subject:hover {
     transform: scale(1.07);
     background: linear-gradient(to right, #FFB6D9, #FBAED8);
     box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3);
 }
+
 .subject.approved {
     background: linear-gradient(to right, #C9AEDC, #BFA0D4);
     text-decoration: line-through;
     color: #4B2C4D;
 }
+
 .subject.locked {
     background: #E0E0E0;
     color: #999;
@@ -203,14 +218,16 @@ body::before {
 @media (max-width: 768px) {
     .cycle {
         min-width: 90vw;
+        height: auto;
     }
     .semester-container {
-        gap: 25px;
-        overflow-y: visible;
+        flex-direction: row;
         flex-wrap: wrap;
+        overflow-y: visible;
+        gap: 20px;
     }
     .semester {
-        min-width: 45%;
+        min-width: 48%;
         padding: 15px;
     }
     .subject {
@@ -225,7 +242,7 @@ body::before {
         padding: 15px 30px;
     }
     .semester-container {
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 15px;
     }
     .semester {
