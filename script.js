@@ -78,3 +78,34 @@ document.addEventListener("DOMContentLoaded", () => {
     loadProgress();
     updatePrerequisites();
 });
+function updateCompletedSemesters() {
+    document.querySelectorAll(".semester").forEach(semester => {
+        const subjects = semester.querySelectorAll(".subject:not(.locked)");
+        const allApproved = Array.from(subjects).length > 0 && Array.from(subjects).every(s => s.classList.contains("approved"));
+        if (allApproved) {
+            semester.classList.add("completed");
+        } else {
+            semester.classList.remove("completed");
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Forzar scroll inicial a la izquierda
+    const container = document.querySelector(".container");
+    if (container) container.scrollLeft = 0;
+
+    document.querySelectorAll(".subject").forEach(subject => {
+        subject.addEventListener("click", function () {
+            if (subject.classList.contains("locked")) return;
+            subject.classList.toggle("approved");
+            saveProgress();
+            updatePrerequisites();
+            updateCompletedSemesters();
+        });
+    });
+
+    loadProgress();
+    updatePrerequisites();
+    updateCompletedSemesters();
+});
