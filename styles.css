@@ -170,52 +170,56 @@ body {
 /* --- OPTIMIZACIÓN MOVIL --- */
 @media (max-width: 768px) {
     .titulo-princesa {
-        font-size: 2em;
-        padding: 15px 25px;
+        font-size: 1.8em;
+        padding: 10px 20px;
+        border-radius: 20px;
     }
 
     .progress-bar-wrapper {
-        width: 90%;
-        height: 16px;
+        width: 95%;
+        height: 14px;
+        margin-bottom: 15px;
     }
 
     .container {
-        gap: 30px;
-        padding: 0 10px 10px 10px;
+        gap: 20px;
+        padding: 0 10px;
     }
 
     .cycle {
-        padding: 20px;
+        padding: 15px;
+        border-radius: 20px;
         border-width: 2px;
     }
 
     .cycle h2 {
-        font-size: 1.5em;
-        margin-bottom: 20px;
+        font-size: 1.3em;
+        margin-bottom: 15px;
     }
 
     .semester-container {
-        gap: 20px;
+        gap: 15px;
     }
 
     .semester {
-        min-width: 180px;
-        padding: 15px;
-        gap: 10px;
+        min-width: 160px;
+        padding: 12px;
+        border-radius: 18px;
     }
 
     .semester h3 {
-        font-size: 1.2em;
+        font-size: 1.1em;
+        margin-bottom: 8px;
     }
 
     .subject {
-        font-size: 0.95em;
-        padding: 12px;
+        font-size: 1em; /* Aumentar tamaño de texto */
+        padding: 10px;
         border-radius: 14px;
     }
 
     .container::-webkit-scrollbar {
-        height: 8px;
+        height: 6px;
     }
 }
 
@@ -225,12 +229,12 @@ body {
     }
 
     .semester {
-        min-width: 160px;
-        padding: 12px;
+        min-width: 140px;
+        padding: 10px;
     }
 
     .subject {
-        font-size: 0.9em;
-        padding: 10px;
+        font-size: 0.95em;
+        padding: 8px;
     }
 }
