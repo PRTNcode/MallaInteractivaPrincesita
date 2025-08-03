@@ -9,7 +9,7 @@ body {
     position: relative;
 }
 
-/* Overlay suave para difuminar el fondo */
+/* Overlay difuminado */
 body::before {
     content: "";
     position: fixed;
@@ -21,7 +21,7 @@ body::before {
     z-index: -1;
 }
 
-/* Título Princesa */
+/* Título Principal */
 .titulo-princesa-wrapper {
     width: 100%;
     display: flex;
@@ -39,7 +39,7 @@ body::before {
     box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
 }
 
-/* Contenedor Principal */
+/* Contenedor Principal de Ciclos (Scroll Horizontal Global) */
 .container {
     display: flex;
     flex-direction: row;
@@ -48,92 +48,10 @@ body::before {
     overflow-y: hidden;
     padding-bottom: 10px;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-/* Ciclos (Recuadros grandes) */
-.cycle {
-    flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    border: 3px solid #FFC1E3;
-    border-radius: 25px;
-    padding: 25px;
-    min-width: max-content;
-    box-shadow: 0 4px 8px rgba(255, 182, 217, 0.2);
-}
-
-/* Título de Ciclo */
-.cycle h2 {
-    text-align: center;
-    color: #D88DCB;
-    margin-bottom: 30px;
-}
-
-/* Contenedor de Semestres dentro del ciclo */
-.semester-container {
-    display: flex;
-    flex-direction: row;
-    gap: 35px;
-    overflow: visible;
-}
-
-/* Semestre */
-.semester {
-    background: #FFF0F7;
-    border-radius: 25px;
-    padding: 30px 20px;
-    min-width: 220px;
-    box-shadow: 0 2px 7px rgba(255, 182, 217, 0.3);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-height: 600px;
-    overflow-y: auto;
-}
-
-/* Título de Semestre */
-.semester h3 {
-    text-align: center;
-    color: #D88DCB;
-    margin-bottom: 15px;
-    font-size: 1.4em;
-}
-
-/* Asignaturas */
-.subject {
-    background: #FFCED9;
-    padding: 18px 14px;
-    margin: 4px 0;
-    cursor: pointer;
-    border-radius: 18px;
-    text-align: center;
-    user-select: none;
-    transition: background 0.3s, transform 0.2s;
-    font-size: 1.2em;
-    font-weight: 700;
-    color: #5B3556;
-}
-
-.subject:hover {
-    transform: scale(1.08);
-    background: #FFB6D9;
-}
-
-/* Asignaturas Aprobadas */
-.subject.approved {
-    background: #D8B4E2;
-    text-decoration: line-through;
-    color: #5B3556;
-}
-
-/* Asignaturas Bloqueadas */
-.subject.locked {
-    background: #E0E0E0;
-    cursor: not-allowed;
-    text-decoration: none;
-    color: #999;
-}
-
-/* Scroll Horizontal Principal */
+/* Estilo visual del scroll horizontal */
 .container::-webkit-scrollbar {
     height: 10px;
 }
@@ -152,21 +70,81 @@ body::before {
     background: #FFA7D4;
 }
 
-/* Scroll Vertical de Semestres */
-.semester::-webkit-scrollbar {
-    width: 6px;
+/* Recuadro de Ciclo */
+.cycle {
+    flex: 0 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #FFC1E3;
+    border-radius: 25px;
+    padding: 25px;
+    min-width: max-content;
+    display: flex;
+    flex-direction: column;
 }
 
-.semester::-webkit-scrollbar-track {
-    background: #FADAF1;
-    border-radius: 5px;
+/* Título del Ciclo */
+.cycle h2 {
+    text-align: center;
+    color: #D88DCB;
+    margin-bottom: 30px;
 }
 
-.semester::-webkit-scrollbar-thumb {
+/* Contenedor de Semestres dentro del Ciclo */
+.semester-container {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+/* Recuadro del Semestre */
+.semester {
+    background: #FFF0F7;
+    border-radius: 25px;
+    padding: 20px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Título de Semestre */
+.semester h3 {
+    text-align: center;
+    color: #D88DCB;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+/* Asignaturas */
+.subject {
+    background: #FFCED9;
+    padding: 16px 12px;
+    cursor: pointer;
+    border-radius: 18px;
+    text-align: center;
+    user-select: none;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #5B3556;
+}
+
+.subject:hover {
+    transform: scale(1.05);
     background: #FFB6D9;
-    border-radius: 5px;
 }
 
-.semester::-webkit-scrollbar-thumb:hover {
-    background: #FFA7D4;
+/* Aprobadas */
+.subject.approved {
+    background: #D8B4E2;
+    text-decoration: line-through;
+    color: #5B3556;
 }
+
+/* Bloqueadas */
+.subject.locked {
+    background: #E0E0E0;
+    cursor: not-allowed;
+    color: #999;
+}
+
