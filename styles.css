@@ -5,12 +5,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #FFF0F8, #FFE9F3);
     margin: 0;
-    padding: 20px 0;
+    padding: 20px;
     overflow-x: hidden;
     overflow-y: hidden;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
     position: relative;
 }
 
@@ -23,14 +20,37 @@ body::before {
     z-index: -2;
 }
 
-/* Título Principal */
+/* Scroll Horizontal Global */
+.container {
+    display: flex;
+    gap: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 10vw;
+    scroll-behavior: smooth;
+}
+
+.container::-webkit-scrollbar {
+    height: 12px;
+}
+.container::-webkit-scrollbar-track {
+    background: linear-gradient(to right, #FADAF1, #FFD3EB);
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
+}
+
+/* Titulo Principal */
 .titulo-princesa-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    flex-shrink: 0;
+    margin-bottom: 30px;
 }
-
 .titulo-princesa {
     background: linear-gradient(135deg, rgba(209, 120, 224, 0.9), rgba(255, 182, 217, 0.9));
     color: #fff;
@@ -41,58 +61,23 @@ body::before {
     text-align: center;
     transition: transform 0.3s ease;
 }
-
 .titulo-princesa:hover {
     transform: scale(1.02);
 }
 
-/* Contenedor principal con scroll horizontal personalizado */
-.container {
-    display: flex;
-    gap: 40px;
-    padding: 0 5vw;
-    height: calc(100vh - 110px);
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
-
-/* Scroll personalizado de la container */
-.container::-webkit-scrollbar {
-    height: 12px;
-}
-
-.container::-webkit-scrollbar-track {
-    background: linear-gradient(to right, #FADAF1, #FFD3EB);
-    border-radius: 6px;
-}
-
-.container::-webkit-scrollbar-thumb {
-    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
-    border-radius: 6px;
-}
-
-.container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
-}
-
-/* Cada ciclo: columna vertical de semestres */
+/* Ciclos */
 .cycle {
     position: relative;
     border: 4px solid #E6B7EB;
     border-radius: 35px;
-    padding: 30px 35px;
+    padding: 35px;
     flex: 0 0 auto;
-    min-width: 650px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    min-width: 700px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
+    animation: float 6s ease-in-out infinite;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(3px);
-    animation: float 6s ease-in-out infinite;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -110,7 +95,6 @@ body::before {
     opacity: 0.12;
     z-index: 0;
 }
-
 .cycle > * {
     position: relative;
     z-index: 1;
@@ -124,31 +108,12 @@ body::before {
     text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
 }
 
-/* Semestre container: apila semestres verticalmente */
+/* Semestres */
 .semester-container {
     display: flex;
-    flex-direction: column;
-    gap: 35px;
-    flex-grow: 1;
-    overflow-y: auto;
-    padding-right: 8px;
+    gap: 45px;
 }
 
-/* Scroll para semestres (vertical interno) */
-.semester-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.semester-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.semester-container::-webkit-scrollbar-thumb {
-    background: #FFB6D9;
-    border-radius: 6px;
-}
-
-/* Cada semestre: caja vertical */
 .semester {
     background: linear-gradient(to bottom, #FFD6E7, #FDE6F4);
     border-radius: 25px;
@@ -160,7 +125,6 @@ body::before {
     box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(168, 94, 185, 0.15);
     transition: transform 0.3s ease;
 }
-
 .semester:hover {
     transform: translateY(-3px);
 }
@@ -188,19 +152,16 @@ body::before {
     box-shadow: 0 2px 6px rgba(168, 94, 185, 0.1);
     transition: transform 0.25s ease, background 0.4s ease, box-shadow 0.3s ease;
 }
-
 .subject:hover {
     transform: scale(1.07);
     background: linear-gradient(to right, #FFB6D9, #FBAED8);
     box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3);
 }
-
 .subject.approved {
     background: linear-gradient(to right, #C9AEDC, #BFA0D4);
     text-decoration: line-through;
     color: #4B2C4D;
 }
-
 .subject.locked {
     background: #E0E0E0;
     color: #999;
@@ -218,16 +179,9 @@ body::before {
 @media (max-width: 768px) {
     .cycle {
         min-width: 90vw;
-        height: auto;
-    }
-    .semester-container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        overflow-y: visible;
-        gap: 20px;
     }
     .semester {
-        min-width: 48%;
+        min-width: 200px;
         padding: 15px;
     }
     .subject {
@@ -242,8 +196,7 @@ body::before {
         padding: 15px 30px;
     }
     .semester-container {
-        flex-direction: column;
-        gap: 15px;
+        flex-wrap: wrap;
     }
     .semester {
         min-width: 100%;
