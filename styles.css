@@ -72,14 +72,16 @@ body::before {
 
 /* Recuadro de Ciclo */
 .cycle {
+    position: relative;
     flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
     border: 3px solid #FFC1E3;
     border-radius: 25px;
     padding: 25px;
     min-width: max-content;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 .cycle::before {
     content: "";
