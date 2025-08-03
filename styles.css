@@ -85,7 +85,7 @@ body::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('https://imgur.com/r1T43z0') center center / contain no-repeat;
+    background: url('https://imgur.com/r1T43z0.png') center center / contain no-repeat;
     opacity: 0.3;
     z-index: 0;
 }
