@@ -80,12 +80,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    position: relative; /* IMPORTANTE para el confetti */
     transition: transform 0.3s ease;
+    cursor: default;
 }
 
 .semester:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .semester h3 {
@@ -125,14 +125,27 @@ body {
     color: #999;
 }
 
-/* --- Estilos para el Confetti --- */
-.confetti {
-    position: absolute;
-    top: -20px;
+/* Confetti explosion style */
+.confetti-explosion {
+    position: fixed;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
+    width: 300px;
+    height: auto;
+    transform: translate(-50%, -50%);
     pointer-events: none;
     user-select: none;
-    z-index: 10;
+    z-index: 9999;
+    animation: confettiFadeOut 3s forwards;
+}
+
+@keyframes confettiFadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
 }
