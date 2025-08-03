@@ -62,10 +62,45 @@ function loadProgress() {
     });
 }
 
+function checkSemesterCompletion() {
+    document.querySelectorAll(".semester").forEach(semester => {
+        const subjects = semester.querySelectorAll(".subject");
+        const allApproved = Array.from(subjects).every(subj => subj.classList.contains("approved"));
+
+        let confetti = semester.querySelector(".confetti");
+
+        if (allApproved) {
+            if (!confetti) {
+                confetti = document.createElement("img");
+                confetti.src = "https://i.imgur.com/FouEWMr.gif";
+                confetti.classList.add("confetti");
+                confetti.style.position = "absolute";
+                confetti.style.top = "-20px";
+                confetti.style.left = "50%";
+                confetti.style.transform = "translateX(-50%)";
+                confetti.style.width = "100px";
+                confetti.style.pointerEvents = "none";
+                semester.style.position = "relative";
+                semester.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 4000);
+            }
+        } else {
+            if (confetti) confetti.remove();
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Forzar scroll inicial a la izquierda
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
+
+    loadProgress();
+    updatePrerequisites();
+    checkSemesterCompletion();
 
     document.querySelectorAll(".subject").forEach(subject => {
         subject.addEventListener("click", function () {
@@ -73,9 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
             subject.classList.toggle("approved");
             saveProgress();
             updatePrerequisites();
+            checkSemesterCompletion();
         });
     });
-
-    loadProgress();
-    updatePrerequisites();
 });
