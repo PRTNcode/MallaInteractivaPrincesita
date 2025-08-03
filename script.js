@@ -62,26 +62,14 @@ function loadProgress() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".container");
-    if (container) container.scrollLeft = 0;
-
-    document.querySelectorAll(".subject").forEach(subject => {
-        subject.addEventListener("click", function () {
-            if (subject.classList.contains("locked")) return;
-            subject.classList.toggle("approved");
-            saveProgress();
-            updatePrerequisites();
-        });
-    });
-
-    loadProgress();
-    updatePrerequisites();
-});
-function updateCompletedSemesters() {
+function checkSemesterCompletion() {
     document.querySelectorAll(".semester").forEach(semester => {
         const subjects = semester.querySelectorAll(".subject:not(.locked)");
-        const allApproved = Array.from(subjects).length > 0 && Array.from(subjects).every(s => s.classList.contains("approved"));
+        if (subjects.length === 0) {
+            semester.classList.remove("completed");
+            return;
+        }
+        const allApproved = Array.from(subjects).every(subj => subj.classList.contains("approved"));
         if (allApproved) {
             semester.classList.add("completed");
         } else {
@@ -91,7 +79,6 @@ function updateCompletedSemesters() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Forzar scroll inicial a la izquierda
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
 
@@ -101,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
             subject.classList.toggle("approved");
             saveProgress();
             updatePrerequisites();
-            updateCompletedSemesters();
+            checkSemesterCompletion();
         });
     });
 
     loadProgress();
     updatePrerequisites();
-    updateCompletedSemesters();
+    checkSemesterCompletion();
 });
