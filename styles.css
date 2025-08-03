@@ -3,7 +3,10 @@ body {
     background: #FFB8F7;
     margin: 0;
     padding: 20px;
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y: hidden; /* Evita scroll vertical */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    box-sizing: border-box;
 }
 
 .titulo-princesa-wrapper {
@@ -28,8 +31,10 @@ body {
     flex-direction: row;
     gap: 50px;
     overflow-x: auto;
-    padding-bottom: 30px;
+    overflow-y: hidden; /* Evita scroll vertical dentro del contenedor */
+    padding-bottom: 10px;
     box-sizing: border-box;
+    height: calc(100vh - 110px); /* Altura disponible menos header y margen */
 }
 
 .cycle {
@@ -37,58 +42,65 @@ body {
     background: #ffffff;
     border: 3px solid #ccc;
     border-radius: 25px;
-    padding: 25px;
+    padding: 20px;
     min-width: max-content;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Que ocupe toda la altura del contenedor */
+    box-sizing: border-box;
 }
 
 .cycle h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .semester-container {
     display: flex;
     flex-direction: row;
-    gap: 35px;
+    gap: 25px;
     overflow: visible;
+    height: 100%;
 }
 
 .semester {
     background: #f0f0f0;
     border-radius: 25px;
-    padding: 30px 20px;
-    min-width: 200px;
-    min-height: 480px;
+    padding: 20px 15px;
+    min-width: 180px;
+    height: 100%;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permitir scroll interno vertical si hay muchas asignaturas */
 }
 
 .semester h3 {
     text-align: center;
     color: #555;
-    margin-bottom: 15px;
-    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    flex-shrink: 0;
 }
 
 .subject {
     background: #ffb6c1;
-    padding: 16px 12px;
-    margin: 4px 0;
+    padding: 12px 10px;
+    margin: 2px 0;
     cursor: pointer;
     border-radius: 18px;
     text-align: center;
     user-select: none;
     transition: background 0.3s, transform 0.2s;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .subject:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .subject.approved {
@@ -121,6 +133,24 @@ body {
     background: #a187c9;
 }
 
+.semester::-webkit-scrollbar {
+    width: 6px;
+}
+
+.semester::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.semester::-webkit-scrollbar-thumb {
+    background: #b19cd9;
+    border-radius: 5px;
+}
+
+.semester::-webkit-scrollbar-thumb:hover {
+    background: #9b86c5;
+}
+
 @media (max-width: 768px) {
     .titulo-princesa {
         font-size: 1.8em;
@@ -128,18 +158,19 @@ body {
     }
 
     .semester {
-        min-width: 160px;
-        padding: 18px 15px;
-        min-height: 380px;
+        min-width: 140px;
+        padding: 15px 12px;
+        height: 100%;
+        gap: 8px;
     }
 
     .semester h3 {
-        font-size: 1.1em;
-        margin-bottom: 12px;
+        font-size: 1em;
+        margin-bottom: 8px;
     }
 
     .subject {
-        font-size: 1em;
-        padding: 12px 8px;
+        font-size: 0.95em;
+        padding: 10px 8px;
     }
 }
