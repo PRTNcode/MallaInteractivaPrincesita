@@ -1,157 +1,133 @@
 /* ===== Estilos base ===== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') center center / cover no-repeat fixed;
-    margin: 0;
-    padding: 20px;
-    overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') center/cover fixed no-repeat;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden; /* no scroll vertical ni horizontal global */
+  position: relative;
 }
 
-/* Overlay pastel para suavizar el fondo */
+/* Overlay pastel para legibilidad */
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 232, 245, 0.85);
-    backdrop-filter: blur(2px);
-    z-index: -1;
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 232, 245, 0.85);
+  backdrop-filter: blur(3px);
+  z-index: -1;
 }
 
-/* Título Princesa */
+/* Título princesa centrado */
 .titulo-princesa-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-
 .titulo-princesa {
-    background-color: rgba(209, 120, 224, 0.85);
-    color: #fff;
-    padding: 25px 50px;
-    font-size: 2.5em;
-    border-radius: 30px;
-    box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
-    text-align: center;
+  background-color: rgba(209, 120, 224, 0.85);
+  color: #fff;
+  padding: 25px 50px;
+  font-size: 2.5em;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
+  text-align: center;
 }
 
-/* Scroll horizontal global */
+/* Scroll horizontal global y centrado inicial */
 .container {
-    display: flex;
-    gap: 50px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0 10vw;
-    scroll-behavior: smooth;
+  display: flex;
+  gap: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 10vw;
+  scroll-behavior: smooth;
+  justify-content: flex-start;
 }
 
+/* Estilos visuales a la barra horizontal */
 .container::-webkit-scrollbar {
-    height: 10px;
+  height: 10px;
 }
 .container::-webkit-scrollbar-track {
-    background: #fadaf1;
-    border-radius: 5px;
+  background: #fadaf1;
+  border-radius: 5px;
 }
 .container::-webkit-scrollbar-thumb {
-    background: #ffb6d9;
-    border-radius: 5px;
+  background: #ffb6d9;
+  border-radius: 5px;
 }
 .container::-webkit-scrollbar-thumb:hover {
-    background: #ffa7d4;
+  background: #ffa7d4;
 }
 
-/* Ciclos con fondo de imagen */
+/* Ciclos estilo bloque grande */
 .cycle {
-    position: relative;
-    border: 3px solid #ffc1e3;
-    border-radius: 25px;
-    padding: 25px;
-    flex: 0 0 auto;
-    min-width: 650px;
-    overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid #ffc1e3;
+  border-radius: 25px;
+  padding: 25px;
+  flex: 0 0 auto;
+  min-width: 650px;
 }
 
-/* Fondo de imagen en el ciclo */
-.cycle::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/flores-fondo.png') center center / contain no-repeat;
-    opacity: 0.25;
-    z-index: 0;
-}
-
-/* Overlay blanco para legibilidad */
-.cycle::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
-}
-
-/* Ciclo contenido sobre las capas */
-.cycle > * {
-    position: relative;
-    z-index: 2;
-}
-
-/* Título ciclo */
+/* Título cada ciclo */
 .cycle h2 {
-    text-align: center;
-    color: #d88dcb;
-    margin-bottom: 30px;
-    font-size: 2em;
+  text-align: center;
+  color: #d88dcb;
+  margin-bottom: 30px;
+  font-size: 2em;
 }
 
-/* Semestres en fila */
+/* Semestres en fila, sin scroll interno */
 .semester-container {
-    display: flex;
-    gap: 40px;
+  display: flex;
+  gap: 40px;
 }
 
-/* Semestres agrandados */
+/* Tarjeta semestre agrandada */
 .semester {
-    background: #fff0f7;
-    border-radius: 25px;
-    padding: 25px;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  background: #fff0f7;
+  border-radius: 25px;
+  padding: 25px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Título semestre */
 .semester h3 {
-    text-align: center;
-    color: #d88dcb;
-    font-size: 1.6em;
-    margin-bottom: 15px;
+  text-align: center;
+  color: #d88dcb;
+  font-size: 1.6em;
+  margin-bottom: 15px;
 }
 
-/* Asignaturas grandes */
+/* Asignaturas grandes y centradas verticalmente */
 .subject {
-    background: #ffced9;
-    padding: 20px 15px;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4em;
-    font-weight: 700;
-    color: #5b3556;
-    border-radius: 20px;
-    transition: transform 0.2s;
+  background: #ffced9;
+  padding: 20px 15px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #5b3556;
+  border-radius: 20px;
+  transition: transform 0.2s;
 }
 .subject:hover {
-    transform: scale(1.05);
-    background: #ffb6d9;
+  transform: scale(1.05);
+  background: #ffb6d9;
 }
 .subject.approved {
-    background: #d8b4e2;
-    text-decoration: line-through;
+  background: #d8b4e2;
+  text-decoration: line-through;
 }
 .subject.locked {
-    background: #e0e0e0;
-    color: #999;
-    cursor: not-allowed;
+  background: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
 }
