@@ -40,8 +40,24 @@ function updatePrerequisites() {
                 subject.classList.remove("locked");
             } else {
                 subject.classList.add("locked");
-                subject.classList.remove("approved"); // Evitar aprobado si está bloqueado
+                subject.classList.remove("approved");
             }
+        }
+    });
+}
+
+function updateSemesterCompletion() {
+    document.querySelectorAll(".semester").forEach(semester => {
+        const subjects = semester.querySelectorAll(".subject:not(.locked)");
+        const allApproved = Array.from(subjects).every(subject => subject.classList.contains("approved"));
+        const semesterTitle = semester.querySelector("h3");
+
+        if (allApproved && subjects.length > 0) {
+            semester.classList.add("semester-completed");
+            semesterTitle.classList.add("completed-title");
+        } else {
+            semester.classList.remove("semester-completed");
+            semesterTitle.classList.remove("completed-title");
         }
     });
 }
@@ -62,22 +78,6 @@ function loadProgress() {
     });
 }
 
-function checkSemesterCompletion() {
-    document.querySelectorAll(".semester").forEach(semester => {
-        const subjects = semester.querySelectorAll(".subject:not(.locked)");
-        if (subjects.length === 0) {
-            semester.classList.remove("completed");
-            return;
-        }
-        const allApproved = Array.from(subjects).every(subj => subj.classList.contains("approved"));
-        if (allApproved) {
-            semester.classList.add("completed");
-        } else {
-            semester.classList.remove("completed");
-        }
-    });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
             subject.classList.toggle("approved");
             saveProgress();
             updatePrerequisites();
-            checkSemesterCompletion();
+            updateSemesterCompletion();
         });
     });
 
     loadProgress();
     updatePrerequisites();
-    checkSemesterCompletion();
+    updateSemesterCompletion();
 });
