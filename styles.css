@@ -86,7 +86,7 @@ body::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('URL-DE-TU-IMAGEN') center center / contain no-repeat;
+    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/flores-fondo.png') center center / contain no-repeat;
     opacity: 0.3; /* Ajusta la opacidad para que no opaque las asignaturas */
     z-index: 0;
 }
