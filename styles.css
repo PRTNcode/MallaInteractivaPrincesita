@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 body::before {
@@ -31,27 +31,27 @@ body::before {
 /* Scroll Horizontal Global */
 .container {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     overflow-x: auto;
     overflow-y: hidden;
     padding: 0 5vw;
     scroll-behavior: smooth;
     max-width: 100vw;
-    height: 75vh;
+    height: 70vh;
     box-sizing: border-box;
     margin: 0 auto;
 }
 
 .container::-webkit-scrollbar {
-    height: 12px;
+    height: 10px;
 }
 .container::-webkit-scrollbar-track {
     background: #FADAF1;
-    border-radius: 6px;
+    border-radius: 5px;
 }
 .container::-webkit-scrollbar-thumb {
     background: #FFB6D9;
-    border-radius: 6px;
+    border-radius: 5px;
 }
 .container::-webkit-scrollbar-thumb:hover {
     background: #FFA7D4;
@@ -61,31 +61,31 @@ body::before {
 .titulo-princesa-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     flex-shrink: 0;
 }
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
     color: #fff;
-    padding: 22px 50px;
-    font-size: 2.6em;
-    border-radius: 35px;
-    box-shadow: 0 6px 15px rgba(209, 120, 224, 0.4);
+    padding: 18px 40px;
+    font-size: 2.2em;
+    border-radius: 30px;
+    box-shadow: 0 5px 12px rgba(209, 120, 224, 0.4);
     text-align: center;
 }
 
 /* Ciclos */
 .cycle {
     position: relative;
-    border: 4px solid #DDA0DD;
-    border-radius: 30px;
-    padding: 25px 20px;
+    border: 3px solid #DDA0DD;
+    border-radius: 25px;
+    padding: 20px;
     flex: 0 0 auto;
-    width: 650px;
-    max-width: 85vw;
+    width: 500px;
+    max-width: 80vw;
     max-height: 100%;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(168, 94, 185, 0.2);
+    box-shadow: 0 6px 15px rgba(168, 94, 185, 0.2);
     animation: float 6s ease-in-out infinite;
     background: #ffffffb5;
     display: flex;
@@ -98,7 +98,7 @@ body::before {
     inset: 0;
     background: url('https://i.imgur.com/r1T43z0.png') repeat;
     background-size: contain;
-    opacity: 0.15;
+    opacity: 0.12;
     z-index: 0;
 }
 .cycle > * {
@@ -109,64 +109,61 @@ body::before {
 .cycle h2 {
     text-align: center;
     color: #A85EB9;
-    font-size: 2em;
-    margin-bottom: 25px;
+    font-size: 1.8em;
+    margin-bottom: 20px;
 }
 
 /* Semestres */
 .semester-container {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     flex-grow: 1;
     overflow-y: auto;
-    padding-right: 10px;
+    padding-right: 5px;
 }
 
 .semester-container::-webkit-scrollbar {
-    width: 7px;
-}
-.semester-container::-webkit-scrollbar-track {
-    background: transparent;
+    width: 6px;
 }
 .semester-container::-webkit-scrollbar-thumb {
     background: #FFB6D9;
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 /* Cada semestre */
 .semester {
     background: #FFD6E7;
-    border-radius: 25px;
-    padding: 20px 15px;
-    width: 230px;
+    border-radius: 20px;
+    padding: 15px;
+    width: 190px;
     max-height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 4px 10px rgba(168, 94, 185, 0.1);
+    gap: 12px;
+    box-shadow: 0 3px 8px rgba(168, 94, 185, 0.1);
     overflow: hidden;
 }
 
 .semester h3 {
     text-align: center;
     color: #A85EB9;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.4em;
+    margin-bottom: 10px;
 }
 
 /* Asignaturas */
 .subject {
     background: #FFE6F0;
-    padding: 16px 12px;
-    min-height: 65px;
+    padding: 14px 10px;
+    min-height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 600;
     color: #5B3556;
-    border-radius: 20px;
-    box-shadow: 0 2px 6px rgba(168, 94, 185, 0.1);
+    border-radius: 18px;
+    box-shadow: 0 2px 5px rgba(168, 94, 185, 0.1);
     transition: transform 0.2s, background 0.3s;
     text-align: center;
     word-break: break-word;
@@ -188,26 +185,26 @@ body::before {
 /* Flotación */
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
     100% { transform: translateY(0px); }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .cycle {
-        width: 90vw;
+        width: 85vw;
         max-width: none;
         max-height: none;
         height: auto;
     }
     .semester {
-        width: 200px;
-        padding: 15px;
+        width: 170px;
+        padding: 12px;
         max-height: none;
     }
     .subject {
-        font-size: 1.1em;
-        padding: 12px;
+        font-size: 1em;
+        padding: 10px;
     }
     .semester-container {
         overflow-y: visible;
@@ -216,8 +213,8 @@ body::before {
 
 @media (max-width: 480px) {
     .titulo-princesa {
-        font-size: 2em;
-        padding: 15px 30px;
+        font-size: 1.8em;
+        padding: 12px 25px;
     }
     .semester-container {
         flex-wrap: wrap;
