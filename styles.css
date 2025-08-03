@@ -72,14 +72,12 @@ body::before {
 
 /* Recuadro de Ciclo */
 .cycle {
-    flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    border: 3px solid #FFC1E3;
+    background: url('https://imgur.com/r1T43z0') center/cover no-repeat;
+    border: 3px solid #ffc1e3;
     border-radius: 25px;
     padding: 25px;
-    min-width: max-content;
-    display: flex;
-    flex-direction: column;
+    flex: 0 0 auto;
+    min-width: 650px;
 }
 
 /* Título del Ciclo */
