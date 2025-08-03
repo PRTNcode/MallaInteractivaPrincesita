@@ -179,60 +179,53 @@ body {
 /* Scrolls individuales y orden vertical en móvil */
 
 @media (max-width: 768px) {
-    body {
-        padding: 10px 10px 20px 10px;
-    }
+  .container {
+    flex-direction: column !important;
+    gap: 20px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-bottom: 0;
+  }
 
-    .container {
-        flex-direction: column !important;
-        gap: 20px;
-        overflow-x: hidden;
-        overflow-y: visible;
-        padding-bottom: 0;
-    }
+  .cycle-wrapper {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+  }
 
-    .cycle-wrapper {
-        max-width: 100%;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        padding-bottom: 10px;
-    }
+  .cycle-wrapper::-webkit-scrollbar {
+    height: 8px;
+  }
 
-    .cycle-wrapper::-webkit-scrollbar {
-        height: 8px;
-    }
+  .cycle-wrapper::-webkit-scrollbar-track {
+    background: #FADAF1;
+    border-radius: 5px;
+  }
 
-    .cycle-wrapper::-webkit-scrollbar-track {
-        background: #FADAF1;
-        border-radius: 5px;
-    }
+  .cycle-wrapper::-webkit-scrollbar-thumb {
+    background: #FFB6D9;
+    border-radius: 5px;
+  }
 
-    .cycle-wrapper::-webkit-scrollbar-thumb {
-        background: #FFB6D9;
-        border-radius: 5px;
-    }
+  .cycle-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #FFA7D4;
+  }
 
-    .cycle-wrapper::-webkit-scrollbar-thumb:hover {
-        background: #FFA7D4;
-    }
+  .cycle {
+    min-width: 600px; /* Asegura un ancho suficiente para scroll */
+    max-width: none;
+    overflow-x: visible; /* Para no limitar el contenido */
+    overflow-y: visible;
+  }
 
-    /* Que cada ciclo sea una fila scroll horizontal independiente */
-    .cycle {
-        min-width: 90vw;
-        max-width: 90vw;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-behavior: smooth;
-    }
-
-    .semester-container {
-        flex-direction: row;
-        gap: 20px;
-    }
+  .semester-container {
+    flex-direction: row;
+    gap: 20px;
+  }
 }
-
-/* Ajustes para móvil más pequeño */
-
 @media (max-width: 480px) {
     .cycle {
         min-width: 95vw;
