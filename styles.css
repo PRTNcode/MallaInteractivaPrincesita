@@ -89,7 +89,7 @@ body {
     color: #D88DCB;
     margin-bottom: 10px;
     font-size: 1.4em;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .subject {
@@ -128,16 +128,14 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.subject-completed {
+.semester-completed .subject {
     background-color: #9BD9A6; /* Verde más oscuro */
     color: #355A33;
-    transition: background-color 0.3s ease, color 0.3s ease;
     text-decoration: line-through;
 }
 
 .semester-completed h3 {
     color: #355A33;
-    font-weight: 700;
     text-decoration: line-through;
-    transition: color 0.3s ease;
+    font-weight: 700;
 }
