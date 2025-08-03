@@ -5,12 +5,14 @@ body {
     padding: 20px;
     overflow-x: hidden;
 }
+
 .titulo-princesa-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
+
 .titulo-princesa {
     background-color: #b19cd9;
     color: white;
@@ -20,6 +22,7 @@ body {
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .container {
     display: flex;
     flex-direction: row;
@@ -28,6 +31,7 @@ body {
     padding-bottom: 30px;
     box-sizing: border-box;
 }
+
 .cycle {
     flex: 0 0 auto;
     background: #ffffff;
@@ -37,86 +41,103 @@ body {
     min-width: max-content;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .cycle h2 {
     text-align: center;
     color: #333;
     margin-bottom: 30px;
 }
+
 .semester-container {
     display: flex;
     flex-direction: row;
     gap: 35px;
     overflow: visible;
 }
+
 .semester {
     background: #f0f0f0;
     border-radius: 25px;
     padding: 30px 20px;
     min-width: 200px;
-    min-height: 480px; /* Aumenta la altura mínima para llenar verticalmente */
+    min-height: 480px;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre asignaturas */
+    gap: 20px;
 }
+
 .semester h3 {
     text-align: center;
     color: #555;
     margin-bottom: 15px;
     font-size: 1.3em;
 }
+
 .subject {
     background: #ffb6c1;
-    padding: 16px 12px; /* Más alto y ancho */
-    margin: 4px 0; /* Reduce margen vertical para ajustar mejor */
+    padding: 16px 12px;
+    margin: 4px 0;
     cursor: pointer;
     border-radius: 18px;
     text-align: center;
     user-select: none;
     transition: background 0.3s, transform 0.2s;
-    font-size: 1.2em; /* Fuente más grande */
+    font-size: 1.2em;
     font-weight: 700;
 }
+
 .subject:hover {
     transform: scale(1.08);
 }
+
 .subject.approved {
     background: #b19cd9;
     text-decoration: line-through;
     color: white;
 }
+
 .subject.locked {
     background: #ccc;
     cursor: not-allowed;
     text-decoration: none;
 }
+
 .container::-webkit-scrollbar {
     height: 10px;
 }
+
 .container::-webkit-scrollbar-track {
     background: #eee;
     border-radius: 5px;
 }
+
 .container::-webkit-scrollbar-thumb {
     background: #b19cd9;
     border-radius: 5px;
 }
+
 .container::-webkit-scrollbar-thumb:hover {
     background: #a187c9;
 }
+
 @media (max-width: 768px) {
     .titulo-princesa {
         font-size: 1.8em;
         padding: 18px 25px;
     }
+
     .semester {
         min-width: 160px;
         padding: 18px 15px;
+        min-height: 380px;
     }
+
     .semester h3 {
         font-size: 1.1em;
         margin-bottom: 12px;
     }
+
     .subject {
         font-size: 1em;
         padding: 12px 8px;
