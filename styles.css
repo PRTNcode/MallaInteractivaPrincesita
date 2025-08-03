@@ -17,13 +17,14 @@ body {
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
     color: #5B3556;
-    padding: 16px 12px;
-    border-radius: 18px;
+    padding: 24px 40px;
+    border-radius: 25px;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 2.2em;         /* Más grande para título */
     font-weight: 700;
-    box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
+    box-shadow: 0 6px 15px rgba(209, 120, 224, 0.5);
     user-select: none;
+    letter-spacing: 0.05em;   /* Espaciado ligero para mejor lectura */
 }
 
 .container {
