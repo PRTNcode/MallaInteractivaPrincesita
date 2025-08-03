@@ -168,52 +168,33 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Contenedor vertical sin scroll horizontal */
     .container {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; /* Los ciclos se apilan uno sobre otro */
         gap: 30px;
-        overflow-x: hidden; /* elimina scroll horizontal global */
-        overflow-y: auto; /* permite scroll vertical si es necesario */
-        height: 100vh; /* para que ocupe toda la pantalla vertical */
+        overflow-x: hidden; /* Quitamos scroll horizontal global */
+        overflow-y: auto;
         padding: 0 10px;
     }
 
-    /* Cada ciclo con scroll horizontal individual */
     .cycle {
-        min-width: 100%;
-        overflow-x: auto; /* scroll horizontal para el ciclo */
+        width: 100%;
+        overflow-x: auto; /* Scroll horizontal solo para este ciclo */
         overflow-y: hidden;
-        white-space: nowrap; /* evita salto de línea en contenido hijo */
-        padding: 20px 10px;
+        white-space: nowrap; /* Sus hijos no saltarán de línea */
         box-sizing: border-box;
-        display: block; /* bloque para que tome ancho completo */
+        padding: 20px 10px;
     }
 
-    /* Semestres en fila horizontal */
     .semester-container {
-        display: inline-flex; /* fila en línea para scroll */
+        display: inline-flex; /* Hacemos que las semestres sean scrollables horizontalmente */
         gap: 20px;
-        padding-bottom: 10px;
     }
 
-    /* Semestre como bloques inline para scroll horizontal */
     .semester {
-        display: inline-block;
-        vertical-align: top;
+        flex: 0 0 auto;
         min-width: 180px;
         max-width: 180px;
-        box-sizing: border-box;
-    }
-
-    /* Ajustes en textos y tamaños */
-    .semester h3 {
-        font-size: 1.2em;
-    }
-
-    .subject {
-        font-size: 1em;
-        padding: 12px;
-        border-radius: 14px;
     }
 
     .titulo-princesa {
@@ -221,9 +202,10 @@ body {
         padding: 15px 25px;
     }
 
-    /* Scrollbar para el container vertical */
-    .container::-webkit-scrollbar {
-        height: 8px;
+    .subject {
+        font-size: 1em;
+        padding: 12px;
+        border-radius: 14px;
     }
 }
 @media (max-width: 480px) {
