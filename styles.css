@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('https://i.imgur.com/r1T43z0.jpg') no-repeat center center fixed;
@@ -18,17 +20,38 @@ body {
     font-family: 'Pacifico', cursive;
     background-color: rgba(209, 120, 224, 0.85);
     color: #FFFFFF;
-    padding: 25px 50px;
+    padding: 20px 40px;
     border-radius: 30px;
-    font-size: 2.8em;
+    font-size: 2.5em;
     text-align: center;
-    box-shadow: 0 6px 15px rgba(209, 120, 224, 0.5);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
 }
 
-.titulo-princesa:hover {
-    transform: scale(1.05);
+.progress-bar-wrapper {
+    width: 80%;
+    margin: 0 auto 20px auto;
+    background: #FADAF1;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background: #FFE4F4;
+    border-radius: 15px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #FFB6D9, #D88DCB);
+    border-radius: 15px;
+    transition: width 0.5s ease-in-out;
+}
+
 .container {
     display: flex;
     gap: 50px;
@@ -41,14 +64,17 @@ body {
 .container::-webkit-scrollbar {
     height: 10px;
 }
+
 .container::-webkit-scrollbar-track {
     background: #FADAF1;
     border-radius: 5px;
 }
+
 .container::-webkit-scrollbar-thumb {
     background: #FFB6D9;
     border-radius: 5px;
 }
+
 .container::-webkit-scrollbar-thumb:hover {
     background: #FFA7D4;
 }
@@ -69,6 +95,7 @@ body {
     text-align: center;
     color: #D88DCB;
     margin-bottom: 30px;
+    font-size: 1.8em;
 }
 
 .semester-container {
@@ -85,7 +112,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    transition: background 0.3s ease;
+    transition: background 0.3s;
 }
 
 .semester h3 {
@@ -93,7 +120,16 @@ body {
     color: #D88DCB;
     margin-bottom: 10px;
     font-size: 1.4em;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
+}
+
+.semester.completed {
+    background: #CFF5D3 !important;
+    box-shadow: 0 0 15px rgba(173, 255, 190, 0.6);
+}
+
+.semester.completed h3 {
+    color: #3A7F58;
 }
 
 .subject {
@@ -115,9 +151,9 @@ body {
 }
 
 .subject.approved {
-    background: #D8B4E2;
+    background: #B9E5C2 !important;
     text-decoration: line-through;
-    color: #5B3556;
+    color: #3A7F58;
 }
 
 .subject.locked {
@@ -126,16 +162,8 @@ body {
     color: #999;
 }
 
-/* SEMESTRE COMPLETADO */
-.semester.completed {
-    background: #D6F5D6; /* Verde pastel suave */
-}
-
 .semester.completed .subject {
-    background: #A8E6A1; /* Verde pastel más fuerte */
-    color: #2F5E2F; /* Verde oscuro para texto */
+    background: #A7DDB3 !important;
+    color: #2E6B4C !important;
 }
 
-.semester.completed h3 {
-    color: #2F5E2F; /* Verde oscuro */
-}
