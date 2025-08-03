@@ -5,10 +5,13 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #FFF0F8;
     margin: 0;
-    padding: 20px;
+    padding: 20px 0;
     overflow-x: hidden;
     overflow-y: hidden;
     position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body::before {
@@ -28,6 +31,8 @@ body::before {
     overflow-y: hidden;
     padding: 0 10vw;
     scroll-behavior: smooth;
+    height: calc(100vh - 110px); /* resto titulo y margen */
+    box-sizing: border-box;
 }
 
 .container::-webkit-scrollbar {
@@ -50,6 +55,7 @@ body::before {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+    flex-shrink: 0;
 }
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
@@ -69,10 +75,13 @@ body::before {
     padding: 30px;
     flex: 0 0 auto;
     min-width: 700px;
+    height: 100%;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(168, 94, 185, 0.2);
     animation: float 6s ease-in-out infinite;
     background: #ffffffb5;
+    display: flex;
+    flex-direction: column;
 }
 
 .cycle::before {
@@ -100,8 +109,23 @@ body::before {
 .semester-container {
     display: flex;
     gap: 45px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 8px;
 }
 
+.semester-container::-webkit-scrollbar {
+    width: 8px;
+}
+.semester-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.semester-container::-webkit-scrollbar-thumb {
+    background: #FFB6D9;
+    border-radius: 6px;
+}
+
+/* Cada semestre */
 .semester {
     background: #FFD6E7;
     border-radius: 25px;
@@ -159,6 +183,7 @@ body::before {
 @media (max-width: 768px) {
     .cycle {
         min-width: 90vw;
+        height: auto;
     }
     .semester {
         min-width: 200px;
@@ -167,6 +192,9 @@ body::before {
     .subject {
         font-size: 1.2em;
         padding: 15px;
+    }
+    .semester-container {
+        overflow-y: visible;
     }
 }
 
