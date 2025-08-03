@@ -69,13 +69,24 @@ function updateSemesterCompletion() {
     document.querySelectorAll('.semester').forEach(semester => {
         const subjects = semester.querySelectorAll('.subject');
         const approvedSubjects = semester.querySelectorAll('.subject.approved');
+        const allSubjectsCount = subjects.length;
+        const approvedCount = approvedSubjects.length;
 
-        if (subjects.length === approvedSubjects.length && subjects.length > 0) {
+        if (approvedCount === allSubjectsCount && allSubjectsCount > 0) {
             semester.classList.add('completed');
         } else {
             semester.classList.remove('completed');
         }
     });
+}
+
+function updateProgressBar() {
+    const totalSubjects = document.querySelectorAll('.subject').length;
+    const approvedSubjects = document.querySelectorAll('.subject.approved').length;
+    const progressPercentage = (approvedSubjects / totalSubjects) * 100;
+
+    const progressFill = document.querySelector('.progress-fill');
+    progressFill.style.width = `${progressPercentage}%`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -99,10 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
             saveProgress();
             updatePrerequisites();
             updateSemesterCompletion();
+            updateProgressBar();
         });
     });
 
     loadProgress();
     updatePrerequisites();
     updateSemesterCompletion();
+    updateProgressBar();
 });
+
