@@ -79,17 +79,8 @@ body {
     background: #FFA7D4;
 }
 
-/* Nuevo wrapper para ciclos */
-.cycle-wrapper {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 100vw;
-}
-
-/* Mantener estilo original del ciclo */
 .cycle {
+    flex: 0 0 auto;
     background: rgba(255, 255, 255, 0.9);
     border: 3px solid #FFC1E3;
     border-radius: 25px;
@@ -176,73 +167,22 @@ body {
     color: #2E6B4C !important;
 }
 
-/* Scrolls individuales y orden vertical en móvil */
-
 @media (max-width: 768px) {
-  .container {
-    display: flex !important;
-    flex-direction: column !important; /* Vertical apilado */
-    gap: 20px;
-    overflow-x: hidden;
-    overflow-y: visible;
-    padding-bottom: 0;
-  }
+    .container {
+        padding: 0 5vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 30px;
+    }
 
-  .cycle-wrapper {
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    padding-bottom: 10px;
-    box-sizing: border-box; /* Importante para no causar overflow */
-  }
-
-  /* Sin posicionamientos absolutos ni floats para evitar sobreposiciones */
-
-  .cycle-wrapper:nth-child(2) {
-    margin-top: 20px; /* Separación clara */
-  }
-
-  .cycle-wrapper::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .cycle-wrapper::-webkit-scrollbar-track {
-    background: #FADAF1;
-    border-radius: 5px;
-  }
-
-  .cycle-wrapper::-webkit-scrollbar-thumb {
-    background: #FFB6D9;
-    border-radius: 5px;
-  }
-
-  .cycle-wrapper::-webkit-scrollbar-thumb:hover {
-    background: #FFA7D4;
-  }
-
-  .cycle {
-    min-width: 600px; /* Ancho para scroll horizontal */
-    max-width: none;
-    overflow-x: visible;
-    overflow-y: visible;
-    box-sizing: border-box;
-  }
-
-  .semester-container {
-    flex-direction: row;
-    gap: 20px;
-  }
-}
-@media (max-width: 480px) {
     .cycle {
-        min-width: 95vw;
-        max-width: 95vw;
+        min-width: 85vw;
+        padding: 20px;
     }
 
     .semester-container {
-        gap: 15px;
+        flex-direction: row;
+        gap: 20px;
     }
 
     .semester {
@@ -251,13 +191,44 @@ body {
         gap: 10px;
     }
 
+    .semester h3 {
+        font-size: 1.2em;
+    }
+
     .subject {
-        font-size: 0.95em;
-        padding: 10px;
+        font-size: 1em;
+        padding: 12px;
+        border-radius: 14px;
     }
 
     .titulo-princesa {
         font-size: 1.8em;
         padding: 15px 25px;
+    }
+
+    .container::-webkit-scrollbar {
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cycle {
+        min-width: 95vw;
+        padding: 15px;
+    }
+
+    .semester-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .semester {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .subject {
+        font-size: 0.95em;
+        padding: 10px;
     }
 }
