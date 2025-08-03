@@ -19,7 +19,7 @@ body {
     color: #5B3556;
     padding: 20px 40px;
     border-radius: 30px;
-    font-size: 2.2em;
+    font-size: 2.5em;
     text-align: center;
     box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
     font-weight: 700;
@@ -81,7 +81,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .semester h3 {
@@ -89,7 +89,7 @@ body {
     color: #D88DCB;
     margin-bottom: 10px;
     font-size: 1.4em;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    transition: color 0.3s, text-decoration 0.3s;
 }
 
 .subject {
@@ -99,7 +99,7 @@ body {
     border-radius: 18px;
     text-align: center;
     user-select: none;
-    transition: background 0.3s, transform 0.2s, color 0.3s;
+    transition: background 0.3s, transform 0.2s;
     font-size: 1.1em;
     font-weight: 700;
     color: #5B3556;
@@ -122,19 +122,17 @@ body {
     color: #999;
 }
 
-/* Estado de semestre completado */
-.semester-completed {
-    background-color: #C7F0D8; /* Verde pastel */
-    transition: background-color 0.3s ease;
+/* Semestre Completado */
+.semester.completed {
+    background: #D4EDDA !important;
 }
 
-.semester-completed .subject {
-    background-color: #9BD9A6; /* Verde más oscuro */
-    color: #355A33;
-    text-decoration: line-through;
+.semester.completed .subject {
+    background: #A9D8C5 !important;
+    color: #5B3556;
 }
 
 .semester.completed-title {
-    color: #3D4B3F;
-    text-decoration: line-through;
+    color: #4CAF50 !important;
+    text-decoration: underline;
 }
