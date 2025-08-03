@@ -168,6 +168,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -242,22 +247,5 @@ body {
     .titulo-princesa {
         font-size: 1.5em;
         padding: 12px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo-princesa {
-        font-size: 1.5em;
-        padding: 12px 20px;
-    }
-
-    .semester {
-        min-width: 160px;
-        max-width: 160px;
-    }
-
-    .subject {
-        font-size: 0.9em;
-        padding: 10px;
     }
 }
