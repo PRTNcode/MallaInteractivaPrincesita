@@ -1,14 +1,10 @@
-/* ===== Fuente ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #FFF0F8, #FFE9F3);
     margin: 0;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    position: relative;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
 }
 
 body::before {
@@ -20,72 +16,51 @@ body::before {
     z-index: -2;
 }
 
-/* Scroll Horizontal Global */
+/* Container ocupa todo el alto disponible */
 .container {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 4vw;
+    height: calc(100vh - 100px); /* Resta el alto del título */
+    padding: 0 3vw;
     scroll-behavior: smooth;
-    transform: scale(0.85);
-    transform-origin: top center;
 }
 
-.container::-webkit-scrollbar {
-    height: 12px;
-}
-.container::-webkit-scrollbar-track {
-    background: linear-gradient(to right, #FADAF1, #FFD3EB);
-    border-radius: 6px;
-}
-.container::-webkit-scrollbar-thumb {
-    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
-    border-radius: 6px;
-}
-.container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
-}
-
-/* Titulo Principal */
+/* Título */
 .titulo-princesa-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    align-items: center;
+    height: 100px;
 }
 .titulo-princesa {
     background: linear-gradient(135deg, rgba(209, 120, 224, 0.9), rgba(255, 182, 217, 0.9));
     color: #fff;
-    padding: 15px 40px;
-    font-size: 2.2em;
-    border-radius: 28px;
-    box-shadow: 0 8px 20px rgba(209, 120, 224, 0.5), 0 0 10px rgba(255, 200, 230, 0.6);
+    padding: 10px 30px;
+    font-size: 2em;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(209, 120, 224, 0.5);
     text-align: center;
-    transition: transform 0.3s ease;
-}
-.titulo-princesa:hover {
-    transform: scale(1.02);
 }
 
-/* Ciclos */
+/* Ciclos ocupan alto completo */
 .cycle {
-    position: relative;
-    border: 4px solid #E6B7EB;
-    border-radius: 20px;
-    padding: 20px;
     flex: 0 0 auto;
-    min-width: 500px;
+    width: 550px;
+    height: 100%;
+    border: 4px solid #E6B7EB;
+    border-radius: 25px;
+    padding: 20px;
+    box-sizing: border-box;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
-    animation: float 6s ease-in-out infinite;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(3px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cycle:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(168, 94, 185, 0.3);
+    box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 }
 
 .cycle::before {
@@ -105,49 +80,49 @@ body::before {
 .cycle h2 {
     text-align: center;
     color: #A85EB9;
-    font-size: 1.9em;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
+    font-size: 1.8em;
+    margin-bottom: 10px;
 }
 
-/* Semestres */
+/* Semestres llenan el espacio verticalmente */
 .semester-container {
     display: flex;
-    gap: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 .semester {
     background: linear-gradient(to bottom, #FFD6E7, #FDE6F4);
     border-radius: 18px;
-    padding: 12px;
-    min-width: 180px;
+    padding: 10px;
+    width: 48%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(168, 94, 185, 0.15);
     transition: transform 0.3s ease;
 }
-.semester:hover {
-    transform: translateY(-3px);
-}
-
 .semester h3 {
     text-align: center;
     color: #A85EB9;
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
+    font-size: 1.2em;
+    margin-bottom: 5px;
 }
 
-/* Asignaturas */
+/* Subjects autoajustados */
 .subject {
     background: linear-gradient(to right, #FFE6F0, #FFD9EB);
-    padding: 10px 8px;
-    min-height: 55px;
+    padding: 10px;
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 600;
     color: #5B3556;
     border-radius: 16px;
@@ -155,7 +130,7 @@ body::before {
     transition: transform 0.25s ease, background 0.4s ease, box-shadow 0.3s ease;
 }
 .subject:hover {
-    transform: scale(1.07);
+    transform: scale(1.05);
     background: linear-gradient(to right, #FFB6D9, #FBAED8);
     box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3);
 }
@@ -170,40 +145,24 @@ body::before {
     cursor: not-allowed;
 }
 
-/* Flotación */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+/* Scrollbar */
+.container::-webkit-scrollbar {
+    height: 12px;
+}
+.container::-webkit-scrollbar-track {
+    background: linear-gradient(to right, #FADAF1, #FFD3EB);
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .container {
-        transform: scale(0.95);
-    }
-    .cycle {
-        min-width: 90vw;
-    }
-    .semester {
-        min-width: 160px;
-        padding: 10px;
-    }
-    .subject {
-        font-size: 1em;
-        padding: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo-princesa {
-        font-size: 2em;
-        padding: 15px 30px;
-    }
-    .semester-container {
-        flex-wrap: wrap;
-    }
-    .semester {
-        min-width: 100%;
-    }
+    .cycle { width: 85vw; }
+    .semester { width: 100%; }
 }
