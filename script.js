@@ -62,34 +62,34 @@ function loadProgress() {
     });
 }
 
+// NUEVA función para mostrar confetti explosión
+function showConfettiExplosion() {
+    const confetti = document.createElement("img");
+    confetti.src = "https://i.imgur.com/FouEWMr.gif";
+    confetti.classList.add("confetti-explosion");
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, 3000);
+}
+
 function checkSemesterCompletion() {
-    document.querySelectorAll(".semester").forEach(semester => {
-        const subjects = semester.querySelectorAll(".subject");
-        const allApproved = Array.from(subjects).every(subj => subj.classList.contains("approved"));
-
-        let confetti = semester.querySelector(".confetti");
-
-        if (allApproved) {
-            if (!confetti) {
-                confetti = document.createElement("img");
-                confetti.src = "https://i.imgur.com/FouEWMr.gif";
-                confetti.classList.add("confetti");
-                confetti.style.position = "absolute";
-                confetti.style.top = "-20px";
-                confetti.style.left = "50%";
-                confetti.style.transform = "translateX(-50%)";
-                confetti.style.width = "100px";
-                confetti.style.pointerEvents = "none";
-                semester.style.position = "relative";
-                semester.appendChild(confetti);
-
-                setTimeout(() => {
-                    confetti.remove();
-                }, 4000);
+    const cycles = document.querySelectorAll(".cycle");
+    cycles.forEach(cycle => {
+        const semesters = cycle.querySelectorAll(".semester");
+        semesters.forEach(semester => {
+            const subjects = semester.querySelectorAll(".subject:not(.locked)");
+            if (subjects.length > 0 && [...subjects].every(subj => subj.classList.contains("approved"))) {
+                // Si todas las asignaturas del semestre están aprobadas y no está bloqueado
+                if (!semester.classList.contains("celebrated")) {
+                    semester.classList.add("celebrated");
+                    showConfettiExplosion();
+                }
+            } else {
+                semester.classList.remove("celebrated");
             }
-        } else {
-            if (confetti) confetti.remove();
-        }
+        });
     });
 }
 
@@ -98,17 +98,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
 
-    loadProgress();
-    updatePrerequisites();
-    checkSemesterCompletion();
-
     document.querySelectorAll(".subject").forEach(subject => {
         subject.addEventListener("click", function () {
             if (subject.classList.contains("locked")) return;
             subject.classList.toggle("approved");
             saveProgress();
             updatePrerequisites();
-            checkSemesterCompletion();
+            checkSemesterCompletion(); // Revisa y muestra confetti si aplica
         });
     });
+
+    loadProgress();
+    updatePrerequisites();
+    checkSemesterCompletion(); // Al cargar, revisar si ya hay semestres completos
 });
