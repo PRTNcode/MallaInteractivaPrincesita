@@ -124,28 +124,3 @@ body {
     cursor: not-allowed;
     color: #999;
 }
-
-/* Confetti explosion style */
-.confetti-explosion {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: auto;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    user-select: none;
-    z-index: 9999;
-    animation: confettiFadeOut 3s forwards;
-}
-
-@keyframes confettiFadeOut {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(1.3);
-    }
-}
