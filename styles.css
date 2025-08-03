@@ -17,20 +17,22 @@ body {
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
     color: #FFFFFF;
-    padding: 20px 40px;
+    padding: 18px 36px; /* Levemente más compacto */
     border-radius: 30px;
-    font-size: 2.2em;
+    font-size: 2em; /* Un poco más pequeño para mejor encaje */
     text-align: center;
     box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
 }
 
 .container {
     display: flex;
-    gap: 50px;
+    gap: 40px; /* Reducido para mejor uso horizontal */
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    padding-left: 8vw; /* Menos padding para aprovechar más ancho */
+    padding-right: 8vw;
 }
 
 .container::-webkit-scrollbar {
@@ -50,11 +52,11 @@ body {
 
 .cycle {
     flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border: 3px solid #FFC1E3;
     border-radius: 25px;
-    padding: 25px;
-    min-width: max-content;
+    padding: 22px; /* Un poco menos de padding para más espacio útil */
+    min-width: 670px; /* Ajustado para que no quede tan ancho */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -63,43 +65,48 @@ body {
 .cycle h2 {
     text-align: center;
     color: #D88DCB;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+    font-size: 2em; /* Ajustado para mejor proporción */
 }
 
 .semester-container {
     display: flex;
     flex-direction: row;
-    gap: 35px;
+    gap: 30px; /* Espacio un poco menor para más aprovechamiento */
 }
 
 .semester {
     background: #FFF0F7;
     border-radius: 25px;
-    padding: 20px;
-    min-width: 220px;
+    padding: 18px 20px; /* Más compacto */
+    min-width: 230px; /* Ajustado para evitar scroll innecesario */
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .semester h3 {
     text-align: center;
     color: #D88DCB;
     margin-bottom: 10px;
-    font-size: 1.4em;
+    font-size: 1.35em;
 }
 
 .subject {
     background: #FFCED9;
-    padding: 16px 12px;
+    padding: 14px 10px; /* Más compacto */
     cursor: pointer;
     border-radius: 18px;
     text-align: center;
     user-select: none;
     transition: background 0.3s, transform 0.2s;
-    font-size: 1.1em;
+    font-size: 1.05em; /* Ligero ajuste para evitar zoom */
     font-weight: 700;
     color: #5B3556;
+    min-height: 72px; /* Ajustado para que no queden muy altos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .subject:hover {
@@ -117,4 +124,45 @@ body {
     background: #E0E0E0;
     cursor: not-allowed;
     color: #999;
+}
+
+/* Responsive ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .cycle {
+        min-width: 90vw;
+        padding: 15px;
+    }
+    .semester {
+        min-width: 180px;
+        padding: 12px 15px;
+        gap: 10px;
+    }
+    .subject {
+        font-size: 1em;
+        padding: 12px 10px;
+        min-height: 60px;
+    }
+    .titulo-princesa {
+        font-size: 1.8em;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        gap: 25px;
+    }
+    .semester-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .semester {
+        min-width: 100%;
+    }
+    .titulo-princesa {
+        font-size: 1.6em;
+        padding: 12px 20px;
+    }
 }
