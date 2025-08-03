@@ -62,39 +62,7 @@ function loadProgress() {
     });
 }
 
-// NUEVA función para mostrar confetti explosión
-function showConfettiExplosion() {
-    const confetti = document.createElement("img");
-    confetti.src = "https://i.imgur.com/FouEWMr.gif";
-    confetti.classList.add("confetti-explosion");
-    document.body.appendChild(confetti);
-
-    setTimeout(() => {
-        confetti.remove();
-    }, 3000);
-}
-
-function checkSemesterCompletion() {
-    const cycles = document.querySelectorAll(".cycle");
-    cycles.forEach(cycle => {
-        const semesters = cycle.querySelectorAll(".semester");
-        semesters.forEach(semester => {
-            const subjects = semester.querySelectorAll(".subject:not(.locked)");
-            if (subjects.length > 0 && [...subjects].every(subj => subj.classList.contains("approved"))) {
-                // Si todas las asignaturas del semestre están aprobadas y no está bloqueado
-                if (!semester.classList.contains("celebrated")) {
-                    semester.classList.add("celebrated");
-                    showConfettiExplosion();
-                }
-            } else {
-                semester.classList.remove("celebrated");
-            }
-        });
-    });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-    // Forzar scroll inicial a la izquierda
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
 
@@ -104,11 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
             subject.classList.toggle("approved");
             saveProgress();
             updatePrerequisites();
-            checkSemesterCompletion(); // Revisa y muestra confetti si aplica
         });
     });
 
     loadProgress();
     updatePrerequisites();
-    checkSemesterCompletion(); // Al cargar, revisar si ya hay semestres completos
 });
