@@ -72,10 +72,8 @@ function updateSemesterCompletion() {
 
         if (subjects.length === approvedSubjects.length && subjects.length > 0) {
             semester.classList.add('completed');
-            semester.querySelector('h3').classList.add('completed-title');
         } else {
             semester.classList.remove('completed');
-            semester.querySelector('h3').classList.remove('completed-title');
         }
     });
 }
