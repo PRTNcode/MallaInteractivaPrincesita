@@ -168,33 +168,42 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     .container {
         display: flex;
-        flex-direction: column; /* Los ciclos se apilan uno sobre otro */
+        flex-direction: column;
         gap: 30px;
-        overflow-x: hidden; /* Quitamos scroll horizontal global */
+        overflow-x: hidden;
         overflow-y: auto;
+        height: auto;
         padding: 0 10px;
     }
 
     .cycle {
         width: 100%;
-        overflow-x: auto; /* Scroll horizontal solo para este ciclo */
-        overflow-y: hidden;
-        white-space: nowrap; /* Sus hijos no saltarán de línea */
-        box-sizing: border-box;
+        overflow-x: auto;
+        white-space: nowrap;
         padding: 20px 10px;
+        box-sizing: border-box;
+        border-radius: 20px;
     }
 
     .semester-container {
-        display: inline-flex; /* Hacemos que las semestres sean scrollables horizontalmente */
+        display: inline-flex;
         gap: 20px;
+        white-space: nowrap;
     }
 
     .semester {
         flex: 0 0 auto;
+        display: inline-block;
         min-width: 180px;
         max-width: 180px;
+        vertical-align: top;
     }
 
     .titulo-princesa {
@@ -207,25 +216,34 @@ body {
         padding: 12px;
         border-radius: 14px;
     }
-}
-@media (max-width: 480px) {
-    .cycle {
-        padding: 15px;
+
+    .cycle::-webkit-scrollbar {
+        height: 8px;
     }
 
-    .semester-container {
-        gap: 15px;
+    .cycle::-webkit-scrollbar-thumb {
+        background: #FFB6D9;
+        border-radius: 5px;
+    }
+
+    .cycle::-webkit-scrollbar-thumb:hover {
+        background: #FFA7D4;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-princesa {
+        font-size: 1.5em;
+        padding: 12px 20px;
     }
 
     .semester {
-        min-width: auto;
-        width: 100%;
-        display: block; /* en pantallas muy pequeñas podemos poner semestres en columna */
-        margin-bottom: 15px;
+        min-width: 160px;
+        max-width: 160px;
     }
 
     .subject {
-        font-size: 0.95em;
+        font-size: 0.9em;
         padding: 10px;
     }
 }
