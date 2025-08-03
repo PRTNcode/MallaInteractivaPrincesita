@@ -3,10 +3,8 @@ body {
     background: #FFB8F7;
     margin: 0;
     padding: 20px;
-    overflow-x: auto;
-    overflow-y: hidden; /* Evita scroll vertical */
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .titulo-princesa-wrapper {
@@ -30,11 +28,10 @@ body {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    overflow-x: auto;
-    overflow-y: hidden; /* Evita scroll vertical dentro del contenedor */
+    overflow-x: auto;   /* SCROLL HORIZONTAL */
+    overflow-y: hidden; /* NO SCROLL VERTICAL */
     padding-bottom: 10px;
     box-sizing: border-box;
-    height: calc(100vh - 110px); /* Altura disponible menos header y margen */
 }
 
 .cycle {
@@ -42,65 +39,62 @@ body {
     background: #ffffff;
     border: 3px solid #ccc;
     border-radius: 25px;
-    padding: 20px;
+    padding: 25px;
     min-width: max-content;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 100%; /* Que ocupe toda la altura del contenedor */
-    box-sizing: border-box;
+    /* QUITAMOS height 100% para que no estire */
 }
 
 .cycle h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .semester-container {
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 35px;
     overflow: visible;
-    height: 100%;
+    /* SIN altura fija */
 }
 
 .semester {
     background: #f0f0f0;
     border-radius: 25px;
-    padding: 20px 15px;
-    min-width: 180px;
-    height: 100%;
+    padding: 30px 20px;
+    min-width: 200px;
+    /* QUITAMOS min-height para que no estire */
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    box-sizing: border-box;
-    overflow-y: auto; /* Permitir scroll interno vertical si hay muchas asignaturas */
+    gap: 20px;
+    max-height: 600px; /* Opcional para limitar y permitir scroll interno */
+    overflow-y: auto;  /* Scroll vertical interno si es necesario */
 }
 
 .semester h3 {
     text-align: center;
     color: #555;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    flex-shrink: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
 }
 
 .subject {
     background: #ffb6c1;
-    padding: 12px 10px;
-    margin: 2px 0;
+    padding: 16px 12px;
+    margin: 4px 0;
     cursor: pointer;
     border-radius: 18px;
     text-align: center;
     user-select: none;
     transition: background 0.3s, transform 0.2s;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 700;
-    flex-shrink: 0;
 }
 
 .subject:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .subject.approved {
@@ -158,19 +152,19 @@ body {
     }
 
     .semester {
-        min-width: 140px;
-        padding: 15px 12px;
-        height: 100%;
-        gap: 8px;
+        min-width: 160px;
+        padding: 18px 15px;
+        max-height: 500px;
+        gap: 15px;
     }
 
     .semester h3 {
-        font-size: 1em;
-        margin-bottom: 8px;
+        font-size: 1.1em;
+        margin-bottom: 12px;
     }
 
     .subject {
-        font-size: 0.95em;
-        padding: 10px 8px;
+        font-size: 1em;
+        padding: 12px 8px;
     }
 }
