@@ -72,14 +72,39 @@ body::before {
 
 /* Recuadro de Ciclo */
 .cycle {
-    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/flores-fondo.png') center/cover no-repeat;
+    position: relative;
     border: 3px solid #ffc1e3;
     border-radius: 25px;
     padding: 25px;
     flex: 0 0 auto;
     min-width: 650px;
+    overflow: hidden;
 }
 
+/* Imagen de fondo */
+.cycle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('URL-DE-TU-IMAGEN') center center / contain no-repeat;
+    opacity: 0.3; /* Ajusta la opacidad para que no opaque las asignaturas */
+    z-index: 0;
+}
+
+/* Capa blanca semitransparente encima de la imagen para legibilidad */
+.cycle::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+}
+
+/* Contenido sobre las capas */
+.cycle > * {
+    position: relative;
+    z-index: 2;
+}
 /* Título del Ciclo */
 .cycle h2 {
     text-align: center;
