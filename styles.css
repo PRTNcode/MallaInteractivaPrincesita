@@ -79,8 +79,17 @@ body {
     background: #FFA7D4;
 }
 
-.cycle {
+/* Nuevo wrapper para ciclos */
+.cycle-wrapper {
     flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100vw;
+}
+
+/* Mantener estilo original del ciclo */
+.cycle {
     background: rgba(255, 255, 255, 0.9);
     border: 3px solid #FFC1E3;
     border-radius: 25px;
@@ -167,49 +176,35 @@ body {
     color: #2E6B4C !important;
 }
 
+/* Scrolls individuales y orden vertical en móvil */
+
 @media (max-width: 768px) {
+    body {
+        padding: 10px 10px 20px 10px;
+    }
+
     .container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+        flex-direction: column !important;
+        gap: 20px;
         overflow-x: hidden;
-        padding: 0 10px;
+        overflow-y: visible;
+        padding-bottom: 0;
     }
 
     .cycle-wrapper {
-        width: 100%;
+        max-width: 100%;
         overflow-x: auto;
-    }
-
-    .cycle {
-        display: inline-flex;
-        gap: 20px;
-        padding: 20px 10px;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 25px;
-        border: 3px solid #FFC1E3;
-        min-width: max-content;
-    }
-
-    .semester-container {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    .semester {
-        min-width: 180px;
-        max-width: 180px;
-        background: #FFF0F7;
-        border-radius: 20px;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        scroll-behavior: smooth;
+        padding-bottom: 10px;
     }
 
     .cycle-wrapper::-webkit-scrollbar {
         height: 8px;
+    }
+
+    .cycle-wrapper::-webkit-scrollbar-track {
+        background: #FADAF1;
+        border-radius: 5px;
     }
 
     .cycle-wrapper::-webkit-scrollbar-thumb {
@@ -220,20 +215,47 @@ body {
     .cycle-wrapper::-webkit-scrollbar-thumb:hover {
         background: #FFA7D4;
     }
+
+    /* Que cada ciclo sea una fila scroll horizontal independiente */
+    .cycle {
+        min-width: 90vw;
+        max-width: 90vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+    }
+
+    .semester-container {
+        flex-direction: row;
+        gap: 20px;
+    }
 }
+
+/* Ajustes para móvil más pequeño */
+
 @media (max-width: 480px) {
+    .cycle {
+        min-width: 95vw;
+        max-width: 95vw;
+    }
+
+    .semester-container {
+        gap: 15px;
+    }
+
     .semester {
-        min-width: 160px;
-        max-width: 160px;
+        min-width: 180px;
+        padding: 15px;
+        gap: 10px;
     }
 
     .subject {
-        font-size: 0.9em;
+        font-size: 0.95em;
         padding: 10px;
     }
 
     .titulo-princesa {
-        font-size: 1.5em;
-        padding: 12px 20px;
+        font-size: 1.8em;
+        padding: 15px 25px;
     }
 }
