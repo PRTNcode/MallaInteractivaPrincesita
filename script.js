@@ -48,7 +48,7 @@ function updatePrerequisites() {
 
 function updateSemesterCompletion() {
     document.querySelectorAll(".semester").forEach(semester => {
-        const subjects = semester.querySelectorAll(".subject:not(.locked)");
+        const subjects = semester.querySelectorAll(".subject");
         const allApproved = Array.from(subjects).every(subject => subject.classList.contains("approved"));
         const semesterTitle = semester.querySelector("h3");
 
