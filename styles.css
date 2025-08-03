@@ -168,71 +168,59 @@ body {
 }
 
 @media (max-width: 768px) {
-    body {
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
     .container {
         display: flex;
         flex-direction: column;
         gap: 30px;
         overflow-x: hidden;
-        overflow-y: auto;
         padding: 0 10px;
     }
 
-    .cycle {
+    .cycle-wrapper {
         width: 100%;
-        box-sizing: border-box;
         overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
+    }
+
+    .cycle {
+        display: inline-flex;
+        gap: 20px;
         padding: 20px 10px;
-        border-radius: 25px;
         background: rgba(255, 255, 255, 0.9);
+        border-radius: 25px;
+        border: 3px solid #FFC1E3;
+        min-width: max-content;
     }
 
     .semester-container {
-        display: inline-flex;
+        display: flex;
+        flex-direction: row;
         gap: 20px;
     }
 
     .semester {
-        display: inline-block;
-        vertical-align: top;
         min-width: 180px;
         max-width: 180px;
         background: #FFF0F7;
         border-radius: 20px;
         padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .cycle::-webkit-scrollbar {
+    .cycle-wrapper::-webkit-scrollbar {
         height: 8px;
     }
 
-    .cycle::-webkit-scrollbar-thumb {
+    .cycle-wrapper::-webkit-scrollbar-thumb {
         background: #FFB6D9;
         border-radius: 5px;
     }
 
-    .cycle::-webkit-scrollbar-thumb:hover {
+    .cycle-wrapper::-webkit-scrollbar-thumb:hover {
         background: #FFA7D4;
     }
-
-    .titulo-princesa {
-        font-size: 1.8em;
-        padding: 15px 25px;
-    }
-
-    .subject {
-        font-size: 1em;
-        padding: 12px;
-        border-radius: 14px;
-    }
 }
-
 @media (max-width: 480px) {
     .semester {
         min-width: 160px;
