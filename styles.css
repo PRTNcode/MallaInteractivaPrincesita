@@ -167,3 +167,68 @@ body {
     color: #2E6B4C !important;
 }
 
+@media (max-width: 768px) {
+    .container {
+        padding: 0 5vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 30px;
+    }
+
+    .cycle {
+        min-width: 85vw;
+        padding: 20px;
+    }
+
+    .semester-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .semester {
+        min-width: 180px;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .semester h3 {
+        font-size: 1.2em;
+    }
+
+    .subject {
+        font-size: 1em;
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .titulo-princesa {
+        font-size: 1.8em;
+        padding: 15px 25px;
+    }
+
+    .container::-webkit-scrollbar {
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cycle {
+        min-width: 95vw;
+        padding: 15px;
+    }
+
+    .semester-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .semester {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .subject {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+}
