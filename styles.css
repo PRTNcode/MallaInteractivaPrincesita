@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     position: relative;
 }
 
@@ -45,34 +45,32 @@ body::before {
     flex-direction: row;
     gap: 50px;
     overflow-x: auto;
-    overflow-y: visible;
+    overflow-y: hidden;
     padding-bottom: 10px;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scroll-padding-left: 20px;
 }
 
-/* Estilo visual del scroll horizontal */
+/* Scroll horizontal styles */
 .container::-webkit-scrollbar {
     height: 10px;
 }
-
 .container::-webkit-scrollbar-track {
     background: #FADAF1;
     border-radius: 5px;
 }
-
 .container::-webkit-scrollbar-thumb {
     background: #FFB6D9;
     border-radius: 5px;
 }
-
 .container::-webkit-scrollbar-thumb:hover {
     background: #FFA7D4;
 }
 
 /* Recuadro de Ciclo */
 .cycle {
-    position: relative;
+    position: relative; /* importante para ::before */
     flex: 0 0 auto;
     background: rgba(255, 255, 255, 0.85);
     border: 3px solid #FFC1E3;
@@ -83,20 +81,23 @@ body::before {
     flex-direction: column;
     overflow: hidden;
 }
+
+/* Fondo de imagen dentro del ciclo */
 .cycle::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/flores-princesa.jpg') center center / contain no-repeat;
+    background: url('https://i.imgur.com/r1T43z0.png') center center / contain no-repeat;
     opacity: 0.3;
     z-index: 0;
 }
 
-/* Todo el contenido del ciclo encima de la imagen */
+/* Contenido encima de la imagen */
 .cycle > * {
     position: relative;
     z-index: 1;
 }
+
 /* Título del Ciclo */
 .cycle h2 {
     text-align: center;
@@ -109,7 +110,6 @@ body::before {
     display: flex;
     flex-direction: row;
     gap: 35px;
-    overflow: visible; /* Eliminar cualquier scroll interno */
 }
 
 /* Recuadro del Semestre */
@@ -121,7 +121,6 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    overflow: visible; /* Eliminar scroll en semestre */
 }
 
 /* Título de Semestre */
