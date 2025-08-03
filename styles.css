@@ -1,24 +1,25 @@
+/* ===== Estilos base ===== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') center/cover fixed no-repeat;
   margin: 0;
   padding: 20px;
-  overflow: hidden;
+  overflow: hidden; /* no scroll vertical ni horizontal global */
   position: relative;
 }
+
+/* Overlay pastel para legibilidad */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 232, 245, 0.8);
+  inset: 0;
+  background: rgba(255, 232, 245, 0.85);
   backdrop-filter: blur(3px);
   z-index: -1;
 }
 
+/* Título princesa centrado */
 .titulo-princesa-wrapper {
-  width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -27,20 +28,24 @@ body::before {
   background-color: rgba(209, 120, 224, 0.85);
   color: #fff;
   padding: 25px 50px;
-  border-radius: 30px;
   font-size: 2.5em;
-  text-align: center;
+  border-radius: 30px;
   box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
+  text-align: center;
 }
 
+/* Scroll horizontal global y centrado inicial */
 .container {
   display: flex;
   gap: 50px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0 10vw; /* Espacio lateral izquierdo y derecho */
+  padding: 0 10vw;
   scroll-behavior: smooth;
+  justify-content: flex-start;
 }
+
+/* Estilos visuales a la barra horizontal */
 .container::-webkit-scrollbar {
   height: 10px;
 }
@@ -56,16 +61,17 @@ body::before {
   background: #ffa7d4;
 }
 
+/* Ciclos estilo bloque grande */
 .cycle {
-  flex: 0 0 auto;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   border: 3px solid #ffc1e3;
   border-radius: 25px;
   padding: 25px;
-  min-width: 650px; /* Ancho mínimo para cada ciclo */
-  display: flex;
-  flex-direction: column;
+  flex: 0 0 auto;
+  min-width: 650px;
 }
+
+/* Título cada ciclo */
 .cycle h2 {
   text-align: center;
   color: #d88dcb;
@@ -73,10 +79,13 @@ body::before {
   font-size: 2em;
 }
 
+/* Semestres en fila, sin scroll interno */
 .semester-container {
   display: flex;
   gap: 40px;
 }
+
+/* Tarjeta semestre agrandada */
 .semester {
   background: #fff0f7;
   border-radius: 25px;
@@ -86,26 +95,27 @@ body::before {
   flex-direction: column;
   gap: 20px;
 }
+
+/* Título semestre */
 .semester h3 {
   text-align: center;
   color: #d88dcb;
-  margin-bottom: 15px;
   font-size: 1.6em;
+  margin-bottom: 15px;
 }
 
+/* Asignaturas grandes y centradas verticalmente */
 .subject {
   background: #ffced9;
   padding: 20px 15px;
-  cursor: pointer;
-  border-radius: 20px;
-  text-align: center;
-  font-size: 1.3em;
-  font-weight: 700;
-  color: #5b3556;
   min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #5b3556;
+  border-radius: 20px;
   transition: transform 0.2s;
 }
 .subject:hover {
@@ -115,7 +125,6 @@ body::before {
 .subject.approved {
   background: #d8b4e2;
   text-decoration: line-through;
-  color: #5b3556;
 }
 .subject.locked {
   background: #e0e0e0;
