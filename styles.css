@@ -78,11 +78,12 @@ body {
 .semester {
     background: #FFF0F7;
     border-radius: 25px;
-    padding: 18px 20px; /* Más compacto */
-    min-width: 230px; /* Ajustado para evitar scroll innecesario */
+    padding: 18px 20px;
+    min-width: 230px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* transición suave */
 }
 
 .semester h3 {
@@ -109,9 +110,9 @@ body {
     justify-content: center;
 }
 
-.subject:hover {
-    transform: scale(1.05);
-    background: #FFB6D9;
+.semester:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(168, 94, 185, 0.3);
 }
 
 .subject.approved {
