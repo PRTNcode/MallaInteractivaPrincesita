@@ -168,74 +168,64 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Contenedor principal */
+    /* Contenedor vertical sin scroll horizontal */
     .container {
-        display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 0 5vw;
-        overflow-x: hidden;
+        gap: 30px;
+        overflow-x: hidden; /* elimina scroll horizontal global */
+        overflow-y: auto; /* permite scroll vertical si es necesario */
+        height: 100vh; /* para que ocupe toda la pantalla vertical */
+        padding: 0 10px;
+    }
+
+    /* Cada ciclo con scroll horizontal individual */
+    .cycle {
+        min-width: 100%;
+        overflow-x: auto; /* scroll horizontal para el ciclo */
         overflow-y: hidden;
-        scroll-behavior: smooth;
+        white-space: nowrap; /* evita salto de línea en contenido hijo */
+        padding: 20px 10px;
+        box-sizing: border-box;
+        display: block; /* bloque para que tome ancho completo */
     }
 
-    /* Primer ciclo */
-    .cycle:first-of-type {
-        order: 1;
-    }
-
-    /* Segundo ciclo */
-    .cycle:last-of-type {
-        order: 2;
-    }
-
-    /* Contenedor de semestres */
+    /* Semestres en fila horizontal */
     .semester-container {
-        display: flex;
-        flex-direction: row;
+        display: inline-flex; /* fila en línea para scroll */
         gap: 20px;
-        overflow-x: auto;
         padding-bottom: 10px;
     }
 
-    /* Semestre */
+    /* Semestre como bloques inline para scroll horizontal */
     .semester {
+        display: inline-block;
+        vertical-align: top;
         min-width: 180px;
-        padding: 15px;
-        gap: 10px;
-        flex-shrink: 0;
+        max-width: 180px;
+        box-sizing: border-box;
     }
 
-    /* Título del semestre */
+    /* Ajustes en textos y tamaños */
     .semester h3 {
         font-size: 1.2em;
     }
 
-    /* Materia */
     .subject {
         font-size: 1em;
         padding: 12px;
         border-radius: 14px;
     }
 
-    /* Barra de progreso */
-    .progress-bar-wrapper {
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    /* Título principal */
     .titulo-princesa {
         font-size: 1.8em;
         padding: 15px 25px;
     }
 
-    /* Scrollbar */
+    /* Scrollbar para el container vertical */
     .container::-webkit-scrollbar {
         height: 8px;
     }
 }
-
 @media (max-width: 480px) {
     .cycle {
         padding: 15px;
