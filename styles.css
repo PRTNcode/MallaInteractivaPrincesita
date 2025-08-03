@@ -4,8 +4,7 @@ body {
   background-size: cover;
   margin: 0;
   padding: 20px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
 }
 body::before {
@@ -39,6 +38,7 @@ body::before {
   gap: 50px;
   overflow-x: auto;
   overflow-y: hidden;
+  padding: 0 10vw; /* Espacio lateral izquierdo y derecho */
   scroll-behavior: smooth;
 }
 .container::-webkit-scrollbar {
@@ -62,7 +62,7 @@ body::before {
   border: 3px solid #ffc1e3;
   border-radius: 25px;
   padding: 25px;
-  min-width: max-content;
+  min-width: 650px; /* Ancho mínimo para cada ciclo */
   display: flex;
   flex-direction: column;
 }
