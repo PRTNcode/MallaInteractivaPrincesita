@@ -196,6 +196,11 @@ body {
     padding-bottom: 10px;
   }
 
+  /* Margen superior para el 2do ciclo para separarlo */
+  .cycle-wrapper:nth-child(2) {
+    margin-top: 30px; /* Puedes ajustar este valor a tu gusto */
+  }
+
   .cycle-wrapper::-webkit-scrollbar {
     height: 8px;
   }
@@ -215,9 +220,9 @@ body {
   }
 
   .cycle {
-    min-width: 600px; /* Asegura un ancho suficiente para scroll */
+    min-width: 600px; /* ancho mínimo para scroll horizontal */
     max-width: none;
-    overflow-x: visible; /* Para no limitar el contenido */
+    overflow-x: visible;
     overflow-y: visible;
   }
 
