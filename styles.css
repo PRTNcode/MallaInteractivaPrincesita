@@ -124,3 +124,17 @@ body {
     cursor: not-allowed;
     color: #999;
 }
+.semester.completed {
+    background-color: #D6F5D6; /* Verde pastel claro para el semestre */
+    transition: background-color 0.5s ease;
+}
+
+.semester.completed .subject {
+    background-color: #A2D5A2; /* Verde pastel más oscuro para asignaturas */
+    color: #2E4D2E; /* Texto verde oscuro para buen contraste */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.semester.completed .subject:hover {
+    background-color: #8CC78C; /* Verde hover un poco más oscuro */
+}
