@@ -1,7 +1,9 @@
+/* ===== Fuente ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') no-repeat center center fixed;
-    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #FFF0F8, #FFE9F3);
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
@@ -9,160 +11,194 @@ body {
     position: relative;
 }
 
-/* Overlay difuminado */
 body::before {
     content: "";
     position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 232, 245, 0.8);
-    backdrop-filter: blur(3px);
-    z-index: -1;
+    inset: 0;
+    background: rgba(255, 232, 245, 0.6);
+    backdrop-filter: blur(6px) brightness(1.1);
+    z-index: -2;
 }
 
-/* Título Principal */
-.titulo-princesa-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.titulo-princesa {
-    background-color: rgba(209, 120, 224, 0.85);
-    color: #FFFFFF;
-    padding: 20px 40px;
-    border-radius: 30px;
-    font-size: 2.2em;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
-}
-
-/* Contenedor Principal de Ciclos (Scroll Horizontal Global) */
+/* Scroll Horizontal Global */
 .container {
     display: flex;
-    flex-direction: row;
     gap: 50px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 10px;
-    box-sizing: border-box;
+    padding: 0 10vw;
     scroll-behavior: smooth;
-    scroll-padding-left: 20px;
 }
 
-/* Scroll horizontal styles */
 .container::-webkit-scrollbar {
-    height: 10px;
+    height: 12px;
 }
 .container::-webkit-scrollbar-track {
-    background: #FADAF1;
-    border-radius: 5px;
+    background: linear-gradient(to right, #FADAF1, #FFD3EB);
+    border-radius: 6px;
 }
 .container::-webkit-scrollbar-thumb {
-    background: #FFB6D9;
-    border-radius: 5px;
+    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
+    border-radius: 6px;
 }
 .container::-webkit-scrollbar-thumb:hover {
-    background: #FFA7D4;
+    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
 }
 
-/* Recuadro de Ciclo */
+/* Titulo Principal */
+.titulo-princesa-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.titulo-princesa {
+    background: linear-gradient(135deg, rgba(209, 120, 224, 0.9), rgba(255, 182, 217, 0.9));
+    color: #fff;
+    padding: 25px 60px;
+    font-size: 3em;
+    border-radius: 35px;
+    box-shadow: 0 8px 20px rgba(209, 120, 224, 0.5), 0 0 10px rgba(255, 200, 230, 0.6);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.titulo-princesa:hover {
+    transform: scale(1.02);
+}
+
+/* Ciclos */
 .cycle {
     position: relative;
+    border: 4px solid #E6B7EB;
+    border-radius: 35px;
+    padding: 35px;
     flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.85);
-    border: 3px solid #FFC1E3;
-    border-radius: 25px;
-    padding: 25px;
-    min-width: max-content;
-    display: flex;
-    flex-direction: column;
+    min-width: 700px;
     overflow: hidden;
-    background-image: url('https://i.imgur.com/r1T43z0.png');
-    background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
+    box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
+    animation: float 6s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* Fondo de imagen dentro del ciclo */
+
+.cycle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(168, 94, 185, 0.3);
+}
+
 .cycle::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('https://i.imgur.com/r1T43z0.png') center center / contain no-repeat;
-    opacity: 0.3;
+    background: url('https://i.imgur.com/r1T43z0.png') repeat;
+    background-size: contain;
+    opacity: 0.12;
     z-index: 0;
 }
-
-/* Contenido encima de la imagen */
 .cycle > * {
     position: relative;
     z-index: 1;
 }
 
-/* Título del Ciclo */
 .cycle h2 {
     text-align: center;
-    color: #D88DCB;
-    margin-bottom: 30px;
+    color: #A85EB9;
+    font-size: 2.4em;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
 }
 
-/* Contenedor de Semestres dentro del Ciclo */
+/* Semestres */
 .semester-container {
     display: flex;
-    flex-direction: row;
-    gap: 35px;
+    gap: 45px;
 }
 
-/* Recuadro del Semestre */
 .semester {
-    background: #FFF0F7;
+    background: linear-gradient(to bottom, #FFD6E7, #FDE6F4);
     border-radius: 25px;
-    padding: 20px;
-    min-width: 220px;
+    padding: 25px;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(168, 94, 185, 0.15);
+    transition: transform 0.3s ease;
+}
+.semester:hover {
+    transform: translateY(-3px);
 }
 
-/* Título de Semestre */
 .semester h3 {
     text-align: center;
-    color: #D88DCB;
-    margin-bottom: 10px;
-    font-size: 1.4em;
+    color: #A85EB9;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
 }
 
 /* Asignaturas */
 .subject {
-    background: #FFCED9;
-    padding: 16px 12px;
-    cursor: pointer;
-    border-radius: 18px;
-    text-align: center;
-    user-select: none;
-    transition: background 0.3s, transform 0.2s;
-    font-size: 1.1em;
-    font-weight: 700;
+    background: linear-gradient(to right, #FFE6F0, #FFD9EB);
+    padding: 20px 15px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 600;
     color: #5B3556;
+    border-radius: 22px;
+    box-shadow: 0 2px 6px rgba(168, 94, 185, 0.1);
+    transition: transform 0.25s ease, background 0.4s ease, box-shadow 0.3s ease;
 }
-
 .subject:hover {
-    transform: scale(1.05);
-    background: #FFB6D9;
+    transform: scale(1.07);
+    background: linear-gradient(to right, #FFB6D9, #FBAED8);
+    box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3);
 }
-
-/* Aprobadas */
 .subject.approved {
-    background: #D8B4E2;
+    background: linear-gradient(to right, #C9AEDC, #BFA0D4);
     text-decoration: line-through;
-    color: #5B3556;
+    color: #4B2C4D;
 }
-
-/* Bloqueadas */
 .subject.locked {
     background: #E0E0E0;
-    cursor: not-allowed;
     color: #999;
+    cursor: not-allowed;
+}
+
+/* Flotación */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cycle {
+        min-width: 90vw;
+    }
+    .semester {
+        min-width: 200px;
+        padding: 15px;
+    }
+    .subject {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-princesa {
+        font-size: 2em;
+        padding: 15px 30px;
+    }
+    .semester-container {
+        flex-wrap: wrap;
+    }
+    .semester {
+        min-width: 100%;
+    }
 }
