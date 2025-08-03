@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #FFB8F7; /* Fondo rosa claro */
+    background: #FFE4F0; /* Fondo rosa pastel */
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
@@ -15,38 +15,38 @@ body {
 }
 
 .titulo-princesa {
-    background-color: #b19cd9; /* Morado pastel */
-    color: white;
+    background-color: #FFB6D9; /* Rosa chicle suave */
+    color: #FFFFFF;
     padding: 20px 40px;
     border-radius: 30px;
     font-size: 2.2em;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(140, 71, 178, 0.3); /* Sombra lavanda transparente */
+    box-shadow: 0 4px 10px rgba(255, 182, 217, 0.4);
 }
 
 .container {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    overflow-x: auto;   /* Scroll horizontal */
-    overflow-y: hidden; /* Sin scroll vertical */
+    overflow-x: auto;
+    overflow-y: hidden;
     padding-bottom: 10px;
     box-sizing: border-box;
 }
 
 .cycle {
     flex: 0 0 auto;
-    background: #f3e5f5; /* Lavanda muy claro */
-    border: 3px solid #b583d9; /* Lavanda medio */
+    background: #FFFFFF; /* Fondo blanco nieve */
+    border: 3px solid #FFC1E3; /* Rosa bebé */
     border-radius: 25px;
     padding: 25px;
     min-width: max-content;
-    box-shadow: 0 4px 8px rgba(140, 71, 178, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 182, 217, 0.2);
 }
 
 .cycle h2 {
     text-align: center;
-    color: #6a0dad; /* Morado intenso */
+    color: #D88DCB; /* Rosa lavanda pastel */
     margin-bottom: 30px;
 }
 
@@ -58,27 +58,27 @@ body {
 }
 
 .semester {
-    background: #fff0f6; /* Rosa pastel muy suave */
+    background: #FFF0F7; /* Rosa pastel muy suave */
     border-radius: 25px;
     padding: 30px 20px;
     min-width: 200px;
-    box-shadow: 0 2px 7px rgba(181, 131, 217, 0.4); /* Sombra lavanda */
+    box-shadow: 0 2px 7px rgba(255, 182, 217, 0.3);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-height: 600px; /* Para scroll interno si hay muchas asignaturas */
+    max-height: 600px;
     overflow-y: auto;
 }
 
 .semester h3 {
     text-align: center;
-    color: #8e44ad; /* Morado vibrante */
+    color: #D88DCB; /* Rosa lavanda pastel */
     margin-bottom: 15px;
     font-size: 1.3em;
 }
 
 .subject {
-    background: #e91e63; /* Rosa fuerte */
+    background: #FFCED9; /* Rosa durazno pastel */
     padding: 16px 12px;
     margin: 4px 0;
     cursor: pointer;
@@ -88,25 +88,25 @@ body {
     transition: background 0.3s, transform 0.2s;
     font-size: 1.2em;
     font-weight: 700;
-    color: white;
+    color: #5B3556;
 }
 
 .subject:hover {
     transform: scale(1.08);
-    background: #d81b60; /* Rosa intenso al hover */
+    background: #FFB6D9; /* Al hover más rosa chicle */
 }
 
 .subject.approved {
-    background: #8e44ad; /* Morado vibrante */
+    background: #D8B4E2; /* Rosado lavanda claro */
     text-decoration: line-through;
-    color: white;
+    color: #5B3556;
 }
 
 .subject.locked {
-    background: #ccc;
+    background: #E0E0E0; /* Gris claro suave */
     cursor: not-allowed;
     text-decoration: none;
-    color: #666;
+    color: #999;
 }
 
 .container::-webkit-scrollbar {
@@ -114,17 +114,17 @@ body {
 }
 
 .container::-webkit-scrollbar-track {
-    background: #eee;
+    background: #FADAF1;
     border-radius: 5px;
 }
 
 .container::-webkit-scrollbar-thumb {
-    background: #b583d9;
+    background: #FFB6D9;
     border-radius: 5px;
 }
 
 .container::-webkit-scrollbar-thumb:hover {
-    background: #a187c9;
+    background: #FFA7D4;
 }
 
 .semester::-webkit-scrollbar {
@@ -132,17 +132,17 @@ body {
 }
 
 .semester::-webkit-scrollbar-track {
-    background: #ddd;
+    background: #FADAF1;
     border-radius: 5px;
 }
 
 .semester::-webkit-scrollbar-thumb {
-    background: #b19cd9;
+    background: #FFB6D9;
     border-radius: 5px;
 }
 
 .semester::-webkit-scrollbar-thumb:hover {
-    background: #9b86c5;
+    background: #FFA7D4;
 }
 
 @media (max-width: 768px) {
