@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #FFB8F7;
+    background: #FFB8F7; /* Fondo rosa claro */
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
@@ -15,39 +15,38 @@ body {
 }
 
 .titulo-princesa {
-    background-color: #b19cd9;
+    background-color: #b19cd9; /* Morado pastel */
     color: white;
     padding: 20px 40px;
     border-radius: 30px;
     font-size: 2.2em;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(140, 71, 178, 0.3); /* Sombra lavanda transparente */
 }
 
 .container {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    overflow-x: auto;   /* SCROLL HORIZONTAL */
-    overflow-y: hidden; /* NO SCROLL VERTICAL */
+    overflow-x: auto;   /* Scroll horizontal */
+    overflow-y: hidden; /* Sin scroll vertical */
     padding-bottom: 10px;
     box-sizing: border-box;
 }
 
 .cycle {
     flex: 0 0 auto;
-    background: #ffffff;
-    border: 3px solid #ccc;
+    background: #f3e5f5; /* Lavanda muy claro */
+    border: 3px solid #b583d9; /* Lavanda medio */
     border-radius: 25px;
     padding: 25px;
     min-width: max-content;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* QUITAMOS height 100% para que no estire */
+    box-shadow: 0 4px 8px rgba(140, 71, 178, 0.2);
 }
 
 .cycle h2 {
     text-align: center;
-    color: #333;
+    color: #6a0dad; /* Morado intenso */
     margin-bottom: 30px;
 }
 
@@ -56,32 +55,30 @@ body {
     flex-direction: row;
     gap: 35px;
     overflow: visible;
-    /* SIN altura fija */
 }
 
 .semester {
-    background: #f0f0f0;
+    background: #fff0f6; /* Rosa pastel muy suave */
     border-radius: 25px;
     padding: 30px 20px;
     min-width: 200px;
-    /* QUITAMOS min-height para que no estire */
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 7px rgba(181, 131, 217, 0.4); /* Sombra lavanda */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-height: 600px; /* Opcional para limitar y permitir scroll interno */
-    overflow-y: auto;  /* Scroll vertical interno si es necesario */
+    max-height: 600px; /* Para scroll interno si hay muchas asignaturas */
+    overflow-y: auto;
 }
 
 .semester h3 {
     text-align: center;
-    color: #555;
+    color: #8e44ad; /* Morado vibrante */
     margin-bottom: 15px;
     font-size: 1.3em;
 }
 
 .subject {
-    background: #ffb6c1;
+    background: #e91e63; /* Rosa fuerte */
     padding: 16px 12px;
     margin: 4px 0;
     cursor: pointer;
@@ -91,14 +88,16 @@ body {
     transition: background 0.3s, transform 0.2s;
     font-size: 1.2em;
     font-weight: 700;
+    color: white;
 }
 
 .subject:hover {
     transform: scale(1.08);
+    background: #d81b60; /* Rosa intenso al hover */
 }
 
 .subject.approved {
-    background: #b19cd9;
+    background: #8e44ad; /* Morado vibrante */
     text-decoration: line-through;
     color: white;
 }
@@ -107,6 +106,7 @@ body {
     background: #ccc;
     cursor: not-allowed;
     text-decoration: none;
+    color: #666;
 }
 
 .container::-webkit-scrollbar {
@@ -119,7 +119,7 @@ body {
 }
 
 .container::-webkit-scrollbar-thumb {
-    background: #b19cd9;
+    background: #b583d9;
     border-radius: 5px;
 }
 
