@@ -175,4 +175,34 @@ body::before {
 /* Flotación */
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform:
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cycle {
+        width: 85vw;
+    }
+    .semester {
+        width: 170px;
+        padding: 12px;
+    }
+    .subject {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-princesa {
+        font-size: 1.8em;
+        padding: 12px 25px;
+    }
+    .semester-container {
+        flex-wrap: wrap;
+    }
+    .semester {
+        width: 100%;
+    }
+}
