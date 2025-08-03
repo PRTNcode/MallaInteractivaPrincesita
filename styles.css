@@ -1,3 +1,6 @@
+/* ===== Fuente ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap');
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #FFF0F8, #FFE9F3);
@@ -16,18 +19,7 @@ body::before {
     z-index: -2;
 }
 
-/* Container ocupa todo el alto disponible */
-.container {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    height: calc(100vh - 100px); /* Resta el alto del título */
-    padding: 0 3vw;
-    scroll-behavior: smooth;
-}
-
-/* Título */
+/* Titulo Principal */
 .titulo-princesa-wrapper {
     display: flex;
     justify-content: center;
@@ -44,10 +36,37 @@ body::before {
     text-align: center;
 }
 
-/* Ciclos ocupan alto completo */
+/* Container ocupa el espacio restante */
+.container {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: calc(100vh - 100px); /* Resta el alto del título */
+    padding: 0 3vw;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.container::-webkit-scrollbar {
+    height: 12px;
+}
+.container::-webkit-scrollbar-track {
+    background: linear-gradient(to right, #FADAF1, #FFD3EB);
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
+}
+
+/* Ciclos alineados verticalmente */
 .cycle {
     flex: 0 0 auto;
-    width: 550px;
+    width: 600px;
     height: 100%;
     border: 4px solid #E6B7EB;
     border-radius: 25px;
@@ -59,7 +78,6 @@ body::before {
     box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
 }
 
@@ -84,37 +102,37 @@ body::before {
     margin-bottom: 10px;
 }
 
-/* Semestres llenan el espacio verticalmente */
+/* Semestres en columnas dentro de cada ciclo */
 .semester-container {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    flex-grow: 1;
-    overflow: hidden;
+    gap: 25px;
+    height: 100%;
+    align-items: stretch;
 }
 
+/* Semestres ocupan el alto */
 .semester {
     background: linear-gradient(to bottom, #FFD6E7, #FDE6F4);
     border-radius: 18px;
     padding: 10px;
-    width: 48%;
+    width: 220px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 10px;
     box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(168, 94, 185, 0.15);
     transition: transform 0.3s ease;
 }
+
 .semester h3 {
     text-align: center;
     color: #A85EB9;
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin-bottom: 5px;
 }
 
-/* Subjects autoajustados */
+/* Subjects autoajustados verticalmente */
 .subject {
     background: linear-gradient(to right, #FFE6F0, #FFD9EB);
     padding: 10px;
@@ -145,24 +163,18 @@ body::before {
     cursor: not-allowed;
 }
 
-/* Scrollbar */
-.container::-webkit-scrollbar {
-    height: 12px;
-}
-.container::-webkit-scrollbar-track {
-    background: linear-gradient(to right, #FADAF1, #FFD3EB);
-    border-radius: 6px;
-}
-.container::-webkit-scrollbar-thumb {
-    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
-    border-radius: 6px;
-}
-.container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .cycle { width: 85vw; }
+    .semester { width: 45%; }
+}
+@media (max-width: 480px) {
+    .titulo-princesa {
+        font-size: 1.8em;
+        padding: 10px 20px;
+    }
+    .semester-container {
+        flex-wrap: wrap;
+    }
     .semester { width: 100%; }
 }
