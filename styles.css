@@ -180,7 +180,8 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    flex-direction: column !important;
+    display: flex !important;
+    flex-direction: column !important; /* Vertical apilado */
     gap: 20px;
     overflow-x: hidden;
     overflow-y: visible;
@@ -194,11 +195,13 @@ body {
     overflow-y: hidden;
     scroll-behavior: smooth;
     padding-bottom: 10px;
+    box-sizing: border-box; /* Importante para no causar overflow */
   }
 
-  /* Margen superior para el 2do ciclo para separarlo */
+  /* Sin posicionamientos absolutos ni floats para evitar sobreposiciones */
+
   .cycle-wrapper:nth-child(2) {
-    margin-top: 30px; /* Puedes ajustar este valor a tu gusto */
+    margin-top: 20px; /* Separación clara */
   }
 
   .cycle-wrapper::-webkit-scrollbar {
@@ -220,10 +223,11 @@ body {
   }
 
   .cycle {
-    min-width: 600px; /* ancho mínimo para scroll horizontal */
+    min-width: 600px; /* Ancho para scroll horizontal */
     max-width: none;
     overflow-x: visible;
     overflow-y: visible;
+    box-sizing: border-box;
   }
 
   .semester-container {
