@@ -15,15 +15,20 @@ body {
 }
 
 .titulo-princesa {
+    font-family: 'Pacifico', cursive;
     background-color: rgba(209, 120, 224, 0.85);
     color: #FFFFFF;
-    padding: 20px 40px;
+    padding: 25px 50px;
     border-radius: 30px;
-    font-size: 2.2em;
+    font-size: 2.8em;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
+    box-shadow: 0 6px 15px rgba(209, 120, 224, 0.5);
+    transition: transform 0.3s ease;
 }
 
+.titulo-princesa:hover {
+    transform: scale(1.05);
+}
 .container {
     display: flex;
     gap: 50px;
