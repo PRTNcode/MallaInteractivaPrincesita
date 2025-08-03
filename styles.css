@@ -1,10 +1,23 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #FFE4F0; /* Fondo rosa pastel */
+    background: url('ruta/a/la/imagen.jpg') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 20px;
     overflow-x: hidden;
     overflow-y: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 232, 245, 0.85); /* Overlay rosado suave */
+    backdrop-filter: blur(3px);
+    z-index: -1;
 }
 
 .titulo-princesa-wrapper {
@@ -15,7 +28,7 @@ body {
 }
 
 .titulo-princesa {
-    background-color: #FFB6D9; /* Rosa chicle suave */
+    background-color: rgba(255, 182, 217, 0.85); /* Rosa chicle suave */
     color: #FFFFFF;
     padding: 20px 40px;
     border-radius: 30px;
@@ -36,8 +49,8 @@ body {
 
 .cycle {
     flex: 0 0 auto;
-    background: #FFFFFF; /* Fondo blanco nieve */
-    border: 3px solid #FFC1E3; /* Rosa bebé */
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #FFC1E3;
     border-radius: 25px;
     padding: 25px;
     min-width: max-content;
@@ -46,7 +59,7 @@ body {
 
 .cycle h2 {
     text-align: center;
-    color: #D88DCB; /* Rosa lavanda pastel */
+    color: #D88DCB;
     margin-bottom: 30px;
 }
 
@@ -58,7 +71,7 @@ body {
 }
 
 .semester {
-    background: #FFF0F7; /* Rosa pastel muy suave */
+    background: #FFF0F7;
     border-radius: 25px;
     padding: 30px 20px;
     min-width: 200px;
@@ -72,13 +85,13 @@ body {
 
 .semester h3 {
     text-align: center;
-    color: #D88DCB; /* Rosa lavanda pastel */
+    color: #D88DCB;
     margin-bottom: 15px;
     font-size: 1.3em;
 }
 
 .subject {
-    background: #FFCED9; /* Rosa durazno pastel */
+    background: #FFCED9;
     padding: 16px 12px;
     margin: 4px 0;
     cursor: pointer;
@@ -93,17 +106,17 @@ body {
 
 .subject:hover {
     transform: scale(1.08);
-    background: #FFB6D9; /* Al hover más rosa chicle */
+    background: #FFB6D9;
 }
 
 .subject.approved {
-    background: #D8B4E2; /* Rosado lavanda claro */
+    background: #D8B4E2;
     text-decoration: line-through;
     color: #5B3556;
 }
 
 .subject.locked {
-    background: #E0E0E0; /* Gris claro suave */
+    background: #E0E0E0;
     cursor: not-allowed;
     text-decoration: none;
     color: #999;
@@ -143,28 +156,4 @@ body {
 
 .semester::-webkit-scrollbar-thumb:hover {
     background: #FFA7D4;
-}
-
-@media (max-width: 768px) {
-    .titulo-princesa {
-        font-size: 1.8em;
-        padding: 18px 25px;
-    }
-
-    .semester {
-        min-width: 160px;
-        padding: 18px 15px;
-        max-height: 500px;
-        gap: 15px;
-    }
-
-    .semester h3 {
-        font-size: 1.1em;
-        margin-bottom: 12px;
-    }
-
-    .subject {
-        font-size: 1em;
-        padding: 12px 8px;
-    }
 }
