@@ -167,21 +167,34 @@ body {
     color: #2E6B4C !important;
 }
 
+/* --- OPTIMIZACIÓN MOVIL --- */
 @media (max-width: 768px) {
+    .titulo-princesa {
+        font-size: 2em;
+        padding: 15px 25px;
+    }
+
+    .progress-bar-wrapper {
+        width: 90%;
+        height: 16px;
+    }
+
     .container {
-        padding: 0 5vw;
-        overflow-x: auto;
-        overflow-y: hidden;
         gap: 30px;
+        padding: 0 10px 10px 10px;
     }
 
     .cycle {
-        min-width: 85vw;
         padding: 20px;
+        border-width: 2px;
+    }
+
+    .cycle h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
     }
 
     .semester-container {
-        flex-direction: row;
         gap: 20px;
     }
 
@@ -196,14 +209,9 @@ body {
     }
 
     .subject {
-        font-size: 1em;
+        font-size: 0.95em;
         padding: 12px;
         border-radius: 14px;
-    }
-
-    .titulo-princesa {
-        font-size: 1.8em;
-        padding: 15px 25px;
     }
 
     .container::-webkit-scrollbar {
@@ -212,23 +220,17 @@ body {
 }
 
 @media (max-width: 480px) {
-    .cycle {
-        min-width: 95vw;
-        padding: 15px;
-    }
-
-    .semester-container {
-        flex-direction: column;
-        gap: 15px;
+    .titulo-princesa {
+        font-size: 1.6em;
     }
 
     .semester {
-        min-width: auto;
-        width: 100%;
+        min-width: 160px;
+        padding: 12px;
     }
 
     .subject {
-        font-size: 0.95em;
+        font-size: 0.9em;
         padding: 10px;
     }
 }
