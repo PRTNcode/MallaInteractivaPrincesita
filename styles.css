@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-body {
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('https://i.imgur.com/r1T43z0.jpg') no-repeat center center fixed;
     background-size: cover;
-    margin: 0;
+}
+
+body {
     padding: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 .titulo-princesa-wrapper {
@@ -58,7 +66,7 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    padding-bottom: 10px;
+    padding-bottom: 0;
 }
 
 .container::-webkit-scrollbar {
@@ -167,7 +175,7 @@ body {
     color: #2E6B4C !important;
 }
 
-/* --- OPTIMIZACIÓN MOVIL --- */
+/* --- OPTIMIZACIÓN Y VISIBILIDAD MOVIL --- */
 @media (max-width: 768px) {
     .titulo-princesa {
         font-size: 1.8em;
@@ -213,7 +221,7 @@ body {
     }
 
     .subject {
-        font-size: 1em; /* Aumentar tamaño de texto */
+        font-size: 1em;
         padding: 10px;
         border-radius: 14px;
     }
