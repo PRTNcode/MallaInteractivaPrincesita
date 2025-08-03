@@ -16,13 +16,12 @@ body {
 
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
-    color: #5B3556;
+    color: #FFFFFF;
     padding: 20px 40px;
     border-radius: 30px;
-    font-size: 2.5em;
+    font-size: 2.2em;
     text-align: center;
     box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
-    font-weight: 700;
 }
 
 .container {
@@ -81,7 +80,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease;
 }
 
 .semester h3 {
@@ -89,7 +88,7 @@ body {
     color: #D88DCB;
     margin-bottom: 10px;
     font-size: 1.4em;
-    transition: color 0.3s, text-decoration 0.3s;
+    transition: color 0.3s ease;
 }
 
 .subject {
@@ -99,7 +98,7 @@ body {
     border-radius: 18px;
     text-align: center;
     user-select: none;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, color 0.3s;
     font-size: 1.1em;
     font-weight: 700;
     color: #5B3556;
@@ -122,17 +121,16 @@ body {
     color: #999;
 }
 
-/* Semestre Completado */
+/* SEMESTRE COMPLETADO */
 .semester.completed {
-    background: #D4EDDA !important;
+    background: #D6F5D6; /* Verde pastel suave */
 }
 
 .semester.completed .subject {
-    background: #A9D8C5 !important;
-    color: #5B3556;
+    background: #A8E6A1; /* Verde pastel más fuerte */
+    color: #2F5E2F; /* Verde oscuro para texto */
 }
 
-.semester.completed-title {
-    color: #4CAF50 !important;
-    text-decoration: underline;
+.semester.completed h3 {
+    color: #2F5E2F; /* Verde oscuro */
 }
