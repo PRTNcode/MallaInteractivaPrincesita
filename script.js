@@ -29,6 +29,8 @@ const prerequisites = {
     "clinica-juridica-2": ["clinica-juridica-1"]
 };
 
+const clickSound = new Audio('click.mp3');
+
 function updatePrerequisites() {
     document.querySelectorAll(".subject").forEach(subject => {
         const id = subject.dataset.id;
@@ -40,24 +42,8 @@ function updatePrerequisites() {
                 subject.classList.remove("locked");
             } else {
                 subject.classList.add("locked");
-                subject.classList.remove("approved");
+                subject.classList.remove("approved"); // Evitar aprobado si está bloqueado
             }
-        }
-    });
-}
-
-function updateSemesterCompletion() {
-    document.querySelectorAll(".semester").forEach(semester => {
-        const subjects = semester.querySelectorAll(".subject");
-        const allApproved = Array.from(subjects).every(subject => subject.classList.contains("approved"));
-        const semesterTitle = semester.querySelector("h3");
-
-        if (allApproved && subjects.length > 0) {
-            semester.classList.add("semester-completed");
-            semesterTitle.classList.add("completed-title");
-        } else {
-            semester.classList.remove("semester-completed");
-            semesterTitle.classList.remove("completed-title");
         }
     });
 }
@@ -78,6 +64,25 @@ function loadProgress() {
     });
 }
 
+function updateSemesterCompletion() {
+    document.querySelectorAll(".semester").forEach(semester => {
+        const subjects = semester.querySelectorAll(".subject");
+        const allApproved = Array.from(subjects).every(subject => subject.classList.contains("approved"));
+
+        const semesterTitle = semester.querySelector("h3");
+
+        if (allApproved) {
+            semester.classList.add("completed");
+            if (semesterTitle) semesterTitle.classList.add("completed-text");
+            subjects.forEach(subject => subject.classList.add("completed-subject"));
+        } else {
+            semester.classList.remove("completed");
+            if (semesterTitle) semesterTitle.classList.remove("completed-text");
+            subjects.forEach(subject => subject.classList.remove("completed-subject"));
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
@@ -86,6 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {
         subject.addEventListener("click", function () {
             if (subject.classList.contains("locked")) return;
             subject.classList.toggle("approved");
+
+            clickSound.currentTime = 0;
+            clickSound.play();
+
             saveProgress();
             updatePrerequisites();
             updateSemesterCompletion();
