@@ -1,29 +1,24 @@
+/* ===== Estilos base ===== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: url('https://prtncode.github.io/MallaInteractivaPrincesita/fondo-princesa.jpg') center center / cover no-repeat fixed;
     margin: 0;
     padding: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    position: relative;
+    overflow: hidden;
 }
 
-/* Overlay difuminado */
+/* Overlay pastel para suavizar el fondo */
 body::before {
     content: "";
     position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 232, 245, 0.8);
-    backdrop-filter: blur(3px);
+    inset: 0;
+    background: rgba(255, 232, 245, 0.85);
+    backdrop-filter: blur(2px);
     z-index: -1;
 }
 
-/* Título Principal */
+/* Título Princesa */
 .titulo-princesa-wrapper {
-    width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -31,46 +26,40 @@ body::before {
 
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
-    color: #FFFFFF;
-    padding: 20px 40px;
+    color: #fff;
+    padding: 25px 50px;
+    font-size: 2.5em;
     border-radius: 30px;
-    font-size: 2.2em;
-    text-align: center;
     box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
+    text-align: center;
 }
 
-/* Contenedor Principal de Ciclos (Scroll Horizontal Global) */
+/* Scroll horizontal global */
 .container {
     display: flex;
-    flex-direction: row;
     gap: 50px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 10px;
-    box-sizing: border-box;
+    padding: 0 10vw;
     scroll-behavior: smooth;
 }
 
-/* Estilo visual del scroll horizontal */
 .container::-webkit-scrollbar {
     height: 10px;
 }
-
 .container::-webkit-scrollbar-track {
-    background: #FADAF1;
+    background: #fadaf1;
     border-radius: 5px;
 }
-
 .container::-webkit-scrollbar-thumb {
-    background: #FFB6D9;
+    background: #ffb6d9;
     border-radius: 5px;
 }
-
 .container::-webkit-scrollbar-thumb:hover {
-    background: #FFA7D4;
+    background: #ffa7d4;
 }
 
-/* Recuadro de Ciclo */
+/* Ciclos con fondo de imagen */
 .cycle {
     position: relative;
     border: 3px solid #ffc1e3;
@@ -81,17 +70,17 @@ body::before {
     overflow: hidden;
 }
 
-/* Imagen de fondo */
+/* Fondo de imagen en el ciclo */
 .cycle::before {
     content: "";
     position: absolute;
     inset: 0;
     background: url('https://prtncode.github.io/MallaInteractivaPrincesita/flores-fondo.png') center center / contain no-repeat;
-    opacity: 0.3; /* Ajusta la opacidad para que no opaque las asignaturas */
+    opacity: 0.25;
     z-index: 0;
 }
 
-/* Capa blanca semitransparente encima de la imagen para legibilidad */
+/* Overlay blanco para legibilidad */
 .cycle::after {
     content: "";
     position: absolute;
@@ -100,73 +89,69 @@ body::before {
     z-index: 1;
 }
 
-/* Contenido sobre las capas */
+/* Ciclo contenido sobre las capas */
 .cycle > * {
     position: relative;
     z-index: 2;
 }
-/* Título del Ciclo */
+
+/* Título ciclo */
 .cycle h2 {
     text-align: center;
-    color: #D88DCB;
+    color: #d88dcb;
     margin-bottom: 30px;
+    font-size: 2em;
 }
 
-/* Contenedor de Semestres dentro del Ciclo */
+/* Semestres en fila */
 .semester-container {
     display: flex;
-    flex-direction: row;
-    gap: 35px;
+    gap: 40px;
 }
 
-/* Recuadro del Semestre */
+/* Semestres agrandados */
 .semester {
-    background: #FFF0F7;
+    background: #fff0f7;
     border-radius: 25px;
-    padding: 20px;
-    min-width: 220px;
+    padding: 25px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
-/* Título de Semestre */
+/* Título semestre */
 .semester h3 {
     text-align: center;
-    color: #D88DCB;
-    margin-bottom: 10px;
-    font-size: 1.4em;
+    color: #d88dcb;
+    font-size: 1.6em;
+    margin-bottom: 15px;
 }
 
-/* Asignaturas */
+/* Asignaturas grandes */
 .subject {
-    background: #FFCED9;
-    padding: 16px 12px;
-    cursor: pointer;
-    border-radius: 18px;
-    text-align: center;
-    user-select: none;
-    transition: background 0.3s, transform 0.2s;
-    font-size: 1.1em;
+    background: #ffced9;
+    padding: 20px 15px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
     font-weight: 700;
-    color: #5B3556;
+    color: #5b3556;
+    border-radius: 20px;
+    transition: transform 0.2s;
 }
-
 .subject:hover {
     transform: scale(1.05);
-    background: #FFB6D9;
+    background: #ffb6d9;
 }
-
-/* Aprobadas */
 .subject.approved {
-    background: #D8B4E2;
+    background: #d8b4e2;
     text-decoration: line-through;
-    color: #5B3556;
 }
-
-/* Bloqueadas */
 .subject.locked {
-    background: #E0E0E0;
-    cursor: not-allowed;
+    background: #e0e0e0;
     color: #999;
+    cursor: not-allowed;
 }
