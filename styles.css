@@ -134,8 +134,7 @@ body {
     text-decoration: line-through;
 }
 
-.semester-completed h3 {
-    color: #355A33;
+.semester.completed-title {
+    color: #3D4B3F;
     text-decoration: line-through;
-    font-weight: 700;
 }
