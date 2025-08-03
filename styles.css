@@ -16,12 +16,13 @@ body {
 
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
-    color: #25002E;
+    color: #5B3556;
     padding: 20px 40px;
     border-radius: 30px;
     font-size: 2.2em;
     text-align: center;
     box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
+    font-weight: 700;
 }
 
 .container {
@@ -80,12 +81,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    transition: transform 0.3s ease;
-    cursor: default;
-}
-
-.semester:hover {
-    transform: scale(1.05);
+    transition: background-color 0.3s ease;
 }
 
 .semester h3 {
@@ -93,6 +89,7 @@ body {
     color: #D88DCB;
     margin-bottom: 10px;
     font-size: 1.4em;
+    transition: color 0.3s ease;
 }
 
 .subject {
@@ -102,7 +99,7 @@ body {
     border-radius: 18px;
     text-align: center;
     user-select: none;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, color 0.3s;
     font-size: 1.1em;
     font-weight: 700;
     color: #5B3556;
@@ -124,17 +121,23 @@ body {
     cursor: not-allowed;
     color: #999;
 }
-.semester.completed {
-    background-color: #D6F5D6; /* Verde pastel claro para el semestre */
-    transition: background-color 0.5s ease;
+
+/* Estado de semestre completado */
+.semester-completed {
+    background-color: #C7F0D8; /* Verde pastel */
+    transition: background-color 0.3s ease;
 }
 
-.semester.completed .subject {
-    background-color: #A2D5A2; /* Verde pastel más oscuro para asignaturas */
-    color: #2E4D2E; /* Texto verde oscuro para buen contraste */
-    transition: background-color 0.5s ease, color 0.5s ease;
+.subject-completed {
+    background-color: #9BD9A6; /* Verde más oscuro */
+    color: #355A33;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: line-through;
 }
 
-.semester.completed .subject:hover {
-    background-color: #8CC78C; /* Verde hover un poco más oscuro */
+.semester-completed h3 {
+    color: #355A33;
+    font-weight: 700;
+    text-decoration: line-through;
+    transition: color 0.3s ease;
 }
