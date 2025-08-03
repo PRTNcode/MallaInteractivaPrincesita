@@ -157,3 +157,19 @@ h2 {
     width: max-content;
     max-width: 90%;
 }
+.titulo-princesa-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.titulo-princesa {
+    background-color: #b19cd9;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 30px;
+    font-size: 2em;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
