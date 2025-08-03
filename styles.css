@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #FFF0F8;
+    background: linear-gradient(to bottom, #FFF0F8, #FFE9F3);
     margin: 0;
     padding: 20px 0;
     overflow-x: hidden;
@@ -18,8 +18,8 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(255, 232, 245, 0.8);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 232, 245, 0.6);
+    backdrop-filter: blur(6px) brightness(1.1);
     z-index: -2;
 }
 
@@ -27,62 +27,72 @@ body::before {
 .titulo-princesa-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     flex-shrink: 0;
 }
 .titulo-princesa {
-    background-color: rgba(209, 120, 224, 0.85);
+    background: linear-gradient(135deg, rgba(209, 120, 224, 0.9), rgba(255, 182, 217, 0.9));
     color: #fff;
-    padding: 20px 50px;
-    font-size: 2.6em;
+    padding: 25px 60px;
+    font-size: 3em;
     border-radius: 35px;
-    box-shadow: 0 6px 15px rgba(209, 120, 224, 0.4);
+    box-shadow: 0 8px 20px rgba(209, 120, 224, 0.5), 0 0 10px rgba(255, 200, 230, 0.6);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+.titulo-princesa:hover {
+    transform: scale(1.02);
 }
 
-/* Contenedor principal con scroll horizontal, ocupa el resto de la pantalla */
+/* Scroll Horizontal Global */
 .container {
     display: flex;
-    gap: 30px;
+    gap: 40px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 0 3vw;
-    height: calc(100vh - 100px);
+    padding: 0 5vw;
     scroll-behavior: smooth;
+    height: calc(100vh - 110px); /* Resta título + margen */
     box-sizing: border-box;
 }
 
-/* Scrollbar */
 .container::-webkit-scrollbar {
     height: 12px;
 }
 .container::-webkit-scrollbar-track {
-    background: #FADAF1;
+    background: linear-gradient(to right, #FADAF1, #FFD3EB);
     border-radius: 6px;
 }
 .container::-webkit-scrollbar-thumb {
-    background: #FFB6D9;
+    background: linear-gradient(145deg, #FFB6D9, #E7A2C8);
     border-radius: 6px;
 }
 .container::-webkit-scrollbar-thumb:hover {
-    background: #FFA7D4;
+    background: linear-gradient(145deg, #FFA7D4, #D78ABC);
 }
 
 /* Ciclos */
 .cycle {
     position: relative;
-    border: 4px solid #DDA0DD;
-    border-radius: 30px;
-    padding: 20px;
+    border: 4px solid #E6B7EB;
+    border-radius: 35px;
+    padding: 30px 35px;
     flex: 0 0 auto;
-    min-width: 500px;
+    min-width: 650px;
     height: 100%;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(168, 94, 185, 0.25);
+    animation: float 6s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(3px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 8px 20px rgba(168, 94, 185, 0.2);
-    background: #ffffffb5;
-    overflow: hidden;
-    box-sizing: border-box;
+}
+
+.cycle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(168, 94, 185, 0.3);
 }
 
 .cycle::before {
@@ -91,10 +101,9 @@ body::before {
     inset: 0;
     background: url('https://i.imgur.com/r1T43z0.png') repeat;
     background-size: contain;
-    opacity: 0.15;
+    opacity: 0.12;
     z-index: 0;
 }
-
 .cycle > * {
     position: relative;
     z-index: 1;
@@ -103,18 +112,18 @@ body::before {
 .cycle h2 {
     text-align: center;
     color: #A85EB9;
-    font-size: 2em;
-    margin-bottom: 15px;
+    font-size: 2.4em;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
 }
 
 /* Semestres */
 .semester-container {
     display: flex;
-    flex-direction: column;
-    gap: 25px;
+    gap: 35px;
     flex-grow: 1;
     overflow-y: auto;
-    padding-right: 8px;
+    padding-right: 6px;
 }
 
 .semester-container::-webkit-scrollbar {
@@ -128,47 +137,54 @@ body::before {
     border-radius: 6px;
 }
 
-/* Semestre */
+/* Cada semestre */
 .semester {
-    background: #FFD6E7;
+    background: linear-gradient(to bottom, #FFD6E7, #FDE6F4);
     border-radius: 25px;
-    padding: 18px;
-    min-height: 130px;
+    padding: 25px;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    box-shadow: 0 4px 10px rgba(168, 94, 185, 0.1);
+    gap: 20px;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(168, 94, 185, 0.15);
+    transition: transform 0.3s ease;
+}
+.semester:hover {
+    transform: translateY(-3px);
 }
 
-/* Semestre título */
 .semester h3 {
     text-align: center;
     color: #A85EB9;
-    font-size: 1.6em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(255, 200, 230, 0.5);
 }
 
 /* Asignaturas */
 .subject {
-    background: #FFE6F0;
-    padding: 15px 12px;
-    min-height: 65px;
+    background: linear-gradient(to right, #FFE6F0, #FFD9EB);
+    padding: 20px 15px;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: 600;
     color: #5B3556;
     border-radius: 22px;
-    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 2px 6px rgba(168, 94, 185, 0.1);
+    transition: transform 0.25s ease, background 0.4s ease, box-shadow 0.3s ease;
 }
 .subject:hover {
-    transform: scale(1.05);
-    background: #FFB6D9;
+    transform: scale(1.07);
+    background: linear-gradient(to right, #FFB6D9, #FBAED8);
+    box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3);
 }
 .subject.approved {
-    background: #C9AEDC;
+    background: linear-gradient(to right, #C9AEDC, #BFA0D4);
     text-decoration: line-through;
+    color: #4B2C4D;
 }
 .subject.locked {
     background: #E0E0E0;
@@ -187,21 +203,19 @@ body::before {
 @media (max-width: 768px) {
     .cycle {
         min-width: 90vw;
-        height: auto;
     }
     .semester-container {
-        flex-direction: row;
-        flex-wrap: wrap;
+        gap: 25px;
         overflow-y: visible;
+        flex-wrap: wrap;
     }
     .semester {
-        min-height: auto;
-        width: 48%;
-        padding: 12px;
+        min-width: 45%;
+        padding: 15px;
     }
     .subject {
-        font-size: 1.1em;
-        padding: 12px;
+        font-size: 1.2em;
+        padding: 15px;
     }
 }
 
@@ -211,10 +225,10 @@ body::before {
         padding: 15px 30px;
     }
     .semester-container {
-        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 15px;
     }
     .semester {
         min-width: 100%;
-        width: 100%;
     }
 }
