@@ -168,56 +168,69 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Contenedor vertical con scroll vertical global */
+    /* Contenedor principal */
     .container {
-        flex-direction: column; /* ciclos en columna */
-        gap: 30px;
-        overflow-x: hidden; /* sin scroll horizontal global */
-        overflow-y: auto; /* scroll vertical */
-        height: 100vh; /* para ocupar toda la pantalla */
-        padding: 0 10px;
-    }
-
-    /* Cada ciclo tiene scroll horizontal individual */
-    .cycle {
-        min-width: 100%; /* ancho completo en móvil */
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 20px 10px;
-        display: block; /* para ocupar todo el ancho */
-        white-space: nowrap; /* evitar salto de línea en hijos */
-        box-sizing: border-box;
-        border-radius: 20px;
-    }
-
-    /* Contenedor de semestres se convierte en fila scrollable */
-    .semester-container {
-        display: inline-flex; /* fila inline flexible */
+        display: flex;
+        flex-direction: column;
         gap: 20px;
+        padding: 0 5vw;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
     }
 
-    /* Cada semestre en línea */
+    /* Primer ciclo */
+    .cycle:first-of-type {
+        order: 1;
+    }
+
+    /* Segundo ciclo */
+    .cycle:last-of-type {
+        order: 2;
+    }
+
+    /* Contenedor de semestres */
+    .semester-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    /* Semestre */
     .semester {
-        display: inline-block; /* para inline con scroll */
-        vertical-align: top;
         min-width: 180px;
+        padding: 15px;
+        gap: 10px;
+        flex-shrink: 0;
     }
 
+    /* Título del semestre */
     .semester h3 {
         font-size: 1.2em;
     }
 
+    /* Materia */
     .subject {
         font-size: 1em;
         padding: 12px;
         border-radius: 14px;
     }
 
+    /* Barra de progreso */
+    .progress-bar-wrapper {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    /* Título principal */
     .titulo-princesa {
         font-size: 1.8em;
         padding: 15px 25px;
     }
 
+    /* Scrollbar */
     .container::-webkit-scrollbar {
         height: 8px;
     }
