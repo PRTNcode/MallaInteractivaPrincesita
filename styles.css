@@ -16,15 +16,12 @@ body {
 
 .titulo-princesa {
     background-color: rgba(209, 120, 224, 0.85);
-    color: #5B3556;
-    padding: 24px 40px;
-    border-radius: 25px;
+    color: #FFFFFF;
+    padding: 20px 40px;
+    border-radius: 30px;
+    font-size: 2.2em;
     text-align: center;
-    font-size: 2.2em;         /* Más grande para título */
-    font-weight: 700;
-    box-shadow: 0 6px 15px rgba(209, 120, 224, 0.5);
-    user-select: none;
-    letter-spacing: 0.05em;   /* Espaciado ligero para mejor lectura */
+    box-shadow: 0 4px 10px rgba(209, 120, 224, 0.4);
 }
 
 .container {
@@ -78,17 +75,17 @@ body {
 .semester {
     background: #FFF0F7;
     border-radius: 25px;
-    padding: 18px 20px;
-    min-width: 230px;
+    padding: 20px;
+    min-width: 220px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 15px;
+    position: relative; /* IMPORTANTE para el confetti */
+    transition: transform 0.3s ease;
 }
 
 .semester:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(168, 94, 185, 0.3);
+    transform: scale(1.03);
 }
 
 .semester h3 {
@@ -126,4 +123,16 @@ body {
     background: #E0E0E0;
     cursor: not-allowed;
     color: #999;
+}
+
+/* --- Estilos para el Confetti --- */
+.confetti {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
 }
