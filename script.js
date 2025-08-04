@@ -80,11 +80,8 @@ function updateSemesterCompletion() {
                 celebrationSound.currentTime = 0;
                 celebrationSound.play();
 
-                // Mostrar GIF de celebración
                 const gif = document.getElementById('celebration-gif');
                 gif.classList.add('show');
-
-                // Ocultar GIF después de 2s
                 setTimeout(() => {
                     gif.classList.remove('show');
                 }, 2000);
@@ -118,6 +115,21 @@ function updateProgressBar() {
     progressFill.style.width = `${progressPercentage}%`;
 }
 
+function convertToRomanNumerals() {
+    const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+
+    document.querySelectorAll(".subject").forEach(subject => {
+        subject.innerHTML = subject.innerHTML.replace(/\b(\d+)\b/g, (match, number) => {
+            number = parseInt(number);
+            if (number >= 1 && number <= 10) {
+                return romanNumerals[number - 1];
+            } else {
+                return match;
+            }
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container");
     if (container) container.scrollLeft = 0;
@@ -139,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
             saveProgress();
             updatePrerequisites();
             updateSemesterCompletion();
+            updateCycleCompletion();
             updateProgressBar();
         });
     });
@@ -146,5 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadProgress();
     updatePrerequisites();
     updateSemesterCompletion();
+    updateCycleCompletion();
     updateProgressBar();
+    convertToRomanNumerals();
 });
