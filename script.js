@@ -77,9 +77,17 @@ function updateSemesterCompletion() {
 
         if (approvedCount === allSubjectsCount && allSubjectsCount > 0) {
             if (!wasCompleted) {
-                // Reproducir sonido solo cuando se complete ahora
                 celebrationSound.currentTime = 0;
                 celebrationSound.play();
+
+                // Mostrar GIF de celebración
+                const gif = document.getElementById('celebration-gif');
+                gif.classList.add('show');
+
+                // Ocultar GIF después de 2s
+                setTimeout(() => {
+                    gif.classList.remove('show');
+                }, 2000);
             }
             semester.classList.add('completed');
         } else {
