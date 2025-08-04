@@ -96,6 +96,19 @@ function updateSemesterCompletion() {
     });
 }
 
+function updateCycleCompletion() {
+    document.querySelectorAll('.cycle').forEach(cycle => {
+        const semesters = cycle.querySelectorAll('.semester');
+        const completedSemesters = cycle.querySelectorAll('.semester.completed');
+
+        if (semesters.length === completedSemesters.length && semesters.length > 0) {
+            cycle.classList.add('completed');
+        } else {
+            cycle.classList.remove('completed');
+        }
+    });
+}
+
 function updateProgressBar() {
     const totalSubjects = document.querySelectorAll('.subject').length;
     const approvedSubjects = document.querySelectorAll('.subject.approved').length;
