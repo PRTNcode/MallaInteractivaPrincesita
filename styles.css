@@ -246,3 +246,27 @@ body {
         padding: 8px;
     }
 }
+
+/* Ajustes para landscape móvil sin afectar desktop */
+@media (orientation: landscape) and (max-width: 768px) {
+    .container {
+        gap: 15px;
+        padding: 10px 5px;
+    }
+    .cycle {
+        padding: 10px;
+        min-width: 140px;
+    }
+    .semester {
+        min-width: 120px;
+        padding: 8px;
+    }
+    .subject {
+        font-size: 0.9em;
+        padding: 6px;
+    }
+    .titulo-princesa {
+        font-size: 1.4em;
+        padding: 10px 15px;
+    }
+}
