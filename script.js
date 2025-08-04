@@ -37,7 +37,7 @@ function updatePrerequisites() {
         const id = subject.dataset.id;
         if (prerequisites[id]) {
             const unlocked = prerequisites[id].every(reqId =>
-                document.querySelector(.subject[data-id='${reqId}'])?.classList.contains("approved")
+                document.querySelector(`.subject[data-id='${reqId}']`)?.classList.contains("approved")
             );
             if (unlocked) {
                 subject.classList.remove("locked");
@@ -60,7 +60,7 @@ function saveProgress() {
 function loadProgress() {
     const approvedSubjects = JSON.parse(localStorage.getItem("mallaProgress")) || [];
     approvedSubjects.forEach(id => {
-        const subject = document.querySelector(.subject[data-id='${id}']);
+        const subject = document.querySelector(`.subject[data-id='${id}']`);
         if (subject) subject.classList.add("approved");
     });
 }
@@ -86,7 +86,7 @@ function updateProgressBar() {
     const progressPercentage = (approvedSubjects / totalSubjects) * 100;
 
     const progressFill = document.querySelector('.progress-fill');
-    progressFill.style.width = ${progressPercentage}%;
+    progressFill.style.width = `${progressPercentage}%`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
