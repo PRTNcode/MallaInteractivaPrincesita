@@ -29,6 +29,7 @@ const prerequisites = {
     "clinica-juridica-2": ["clinica-juridica-1"]
 };
 
+const celebrationSound = document.getElementById('celebration-sound');
 const checkSound = new Audio('check.mp3');
 const uncheckSound = new Audio('uncheck.mp3');
 
@@ -72,7 +73,14 @@ function updateSemesterCompletion() {
         const allSubjectsCount = subjects.length;
         const approvedCount = approvedSubjects.length;
 
+        const wasCompleted = semester.classList.contains('completed');
+
         if (approvedCount === allSubjectsCount && allSubjectsCount > 0) {
+            if (!wasCompleted) {
+                // Reproducir sonido solo cuando se complete ahora
+                celebrationSound.currentTime = 0;
+                celebrationSound.play();
+            }
             semester.classList.add('completed');
         } else {
             semester.classList.remove('completed');
