@@ -177,12 +177,23 @@ body {
 
 .cycle.completed {
     background: #CFF5D3 !important;
-    border-color: #A5E1B5 !important;
-    box-shadow: 0 0 20px rgba(100, 200, 100, 0.5);
+    border-color: #95D6A4 !important;
+    box-shadow: 0 0 20px rgba(149, 214, 164, 0.6);
+    transition: background 0.5s, border-color 0.5s, box-shadow 0.5s;
 }
 
 .cycle.completed h2 {
     color: #3A7F58 !important;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(149, 214, 164, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(149, 214, 164, 0.9); }
+    100% { box-shadow: 0 0 10px rgba(149, 214, 164, 0.5); }
+}
+
+.cycle.completed {
+    animation: glow 2s infinite;
 }
 
 #celebration-gif {
