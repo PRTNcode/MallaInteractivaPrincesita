@@ -176,9 +176,9 @@ body {
 }
 
 .cycle.completed {
-    background: #CFF5D3 !important;
-    border-color: #95D6A4 !important;
-    box-shadow: 0 0 20px rgba(149, 214, 164, 0.6);
+    background: #E0F8E7 !important; /* Verde pastel más claro */
+    border-color: #A3E1B7 !important;
+    box-shadow: 0 0 20px rgba(163, 225, 183, 0.5);
     transition: background 0.5s, border-color 0.5s, box-shadow 0.5s;
 }
 
@@ -187,9 +187,9 @@ body {
 }
 
 @keyframes glow {
-    0% { box-shadow: 0 0 10px rgba(149, 214, 164, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(149, 214, 164, 0.9); }
-    100% { box-shadow: 0 0 10px rgba(149, 214, 164, 0.5); }
+    0% { box-shadow: 0 0 10px rgba(163, 225, 183, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(163, 225, 183, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(163, 225, 183, 0.4); }
 }
 
 .cycle.completed {
